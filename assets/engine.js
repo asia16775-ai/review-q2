@@ -324,12 +324,36 @@
   }
 
   /* ---------------- สรุปผล ---------------- */
+
+  /* รหัสผลแบบสั้น (v2) — สั้นพอที่จะยัดลง QR ได้สบาย ๆ
+     รูปแบบ:  2 + วิชา(1) + เวลารวม base36(3) + [ได้กี่คะแนน(1) + วินาที base36(2)] ต่อข้อ + '~' + ชื่อ
+     ตัวอักษรคะแนน: '0'-'9' = ไม่ได้ขอครูช่วย · 'A'-'J' = ขอครูช่วยข้อนั้น */
+  function pad36(n, wide) {
+    var max = Math.pow(36, wide) - 1;
+    var s = Math.min(max, Math.max(0, Math.round(n || 0))).toString(36);
+    while (s.length < wide) s = '0' + s;
+    return s;
+  }
+  function b64url(s) {
+    try {
+      return btoa(unescape(encodeURIComponent(s)))
+        .replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/, '');
+    } catch (e) { return ''; }
+  }
   function resultCode() {
     var body = S.items.map(function (it) {
-      return b36(it._got || 0) + (it._help ? 'h' : '.') + b36(it._sec || 0);
-    }).join(',');
-    var raw = 'RQ2|' + S.subject + '|' + (S.name || '-') + '|' + b36(S.elapsed) + '|' + body;
-    try { return btoa(unescape(encodeURIComponent(raw))); } catch (e) { return raw; }
+      var g = Math.min(9, Math.max(0, Math.round(it._got || 0)));
+      return (it._help ? String.fromCharCode(65 + g) : String(g)) + pad36(it._sec, 2);
+    }).join('');
+    var code = '2' + (S.subject || 'x').charAt(0) + pad36(S.elapsed, 3) + body;
+    var nm = b64url((S.name || '').slice(0, 16));
+    return nm ? code + '~' + nm : code;
+  }
+
+  /* ลิงก์เต็มที่ชี้ไปหน้าครู พร้อมผลสอบติดไปในลิงก์เลย */
+  function resultLink() {
+    try { return new URL('../teacher.html', location.href).href + '#' + resultCode(); }
+    catch (e) { return ''; }
   }
 
   function confetti() {
@@ -411,20 +435,58 @@
         '</b></p><div class="btn-row"><button class="btn" id="btnRetry">🔁 ทำเฉพาะข้อที่ผิดอีกรอบ</button></div>';
     }
 
-    h += '<h3>📤 ส่งผลให้ครู</h3>' +
-      '<p class="th">กดปุ่มคัดลอก แล้ววางในแชทส่งให้ครู · ครูเอาไปเปิดดูในหน้า “สำหรับครู” ได้</p>' +
-      '<textarea class="code" id="codeBox" readonly>' + resultCode() + '</textarea>' +
-      '<div class="btn-row"><button class="btn" id="btnCopy">📋 คัดลอกรหัสผล</button>' +
+    /* ---- ส่งผลให้ครู: แค่โชว์ QR ค้างไว้ ครูส่องเอง ---- */
+    var link = resultLink();
+    var isFile = (location.protocol === 'file:');
+    var qrSvg = '';
+    if (!isFile && link && w.QR) {
+      try { qrSvg = QR.svg(link, { scale: 6, margin: 3 }); } catch (e) { qrSvg = ''; }
+    }
+
+    h += '<h3>📤 ส่งผลให้ครู</h3>';
+    if (qrSvg) {
+      h += '<div class="qrwrap">' +
+        '<button class="qrimg" id="qrBig" title="กดเพื่อขยาย">' + qrSvg + '</button>' +
+        '<div class="qrsay">' +
+        '<p class="qrlead">ให้ครู<b>ส่องรูปนี้ด้วยกล้องมือถือ</b> 📱<br>รายงานจะเด้งขึ้นบนเครื่องครูเอง</p>' +
+        '<p class="th">หนูไม่ต้องกดอะไรอีกแล้วนะ แค่เปิดหน้านี้ค้างไว้</p>' +
+        '<button class="btn ghost sm" id="qrBig2">🔍 ขยายให้ใหญ่ขึ้น</button>' +
+        '</div></div>' +
+        '<details class="fallback"><summary>ส่องไม่ติด? ใช้ลิงก์แทนก็ได้</summary>' +
+        '<p class="th">กดปุ่มนี้แล้ววางในแชทส่งให้ครู ครูกดลิงก์ก็เห็นรายงานเหมือนกัน</p>' +
+        '<textarea class="code" id="codeBox" readonly>' + link + '</textarea>' +
+        '<button class="btn" id="btnCopy">📋 คัดลอกลิงก์</button></details>';
+    } else {
+      h += '<p class="th">' + (isFile
+        ? 'ตอนนี้เปิดจากไฟล์ในเครื่อง เลยยังทำ QR ให้ไม่ได้ — พออัปขึ้น GitHub แล้วจะมี QR ให้ครูส่องอัตโนมัติ'
+        : 'ส่งลิงก์นี้ให้ครูในแชท ครูกดแล้วเห็นรายงานเลย') + '</p>' +
+        '<textarea class="code" id="codeBox" readonly>' + (link || resultCode()) + '</textarea>' +
+        '<button class="btn" id="btnCopy">📋 คัดลอกลิงก์</button>';
+    }
+    h += '<div class="btn-row" style="margin-top:14px">' +
       '<button class="btn ghost" onclick="location.reload()">🔄 เริ่มใหม่ทั้งหมด</button></div>';
 
     r.innerHTML = h;
 
     var bc = el('btnCopy');
     if (bc) bc.addEventListener('click', function () {
-      var t = el('codeBox');
+      var t = el('codeBox'), self = this;
       t.select(); t.setSelectionRange(0, 99999);
-      try { d.execCommand('copy'); this.textContent = '✅ คัดลอกแล้ว!'; }
-      catch (e) { this.textContent = 'กดค้างที่กล่องแล้วเลือก Copy'; }
+      try { d.execCommand('copy'); self.textContent = '✅ คัดลอกแล้ว!'; }
+      catch (e) { self.textContent = 'กดค้างที่กล่องแล้วเลือก Copy'; }
+    });
+
+    function bigQR() {
+      var ov = mk('div');
+      ov.className = 'qrover';
+      ov.innerHTML = '<div class="qrcard">' + QR.svg(link, { scale: 10, margin: 3 }) +
+        '<p>ครูส่องด้วยกล้องมือถือได้เลย · แตะที่ไหนก็ได้เพื่อปิด</p></div>';
+      ov.addEventListener('click', function () { ov.remove(); });
+      d.body.appendChild(ov);
+    }
+    ['qrBig', 'qrBig2'].forEach(function (id) {
+      var b = el(id);
+      if (b) b.addEventListener('click', bigQR);
     });
     var br = el('btnRetry');
     if (br) br.addEventListener('click', function () {

@@ -368,3 +368,40 @@ th { background: #e9eefa; color: var(--theme); }
 .sounds button.s3 { background: #fff3e0; border-color: var(--help); color: #a35c00; }
 .slegend { display: flex; gap: 14px; flex-wrap: wrap; font-size: 17px; margin-top: 6px; }
 .slegend span { border-radius: 999px; padding: 3px 14px; font-weight: 700; }
+
+/* ---------- QR ส่งผลให้ครู ---------- */
+.qrwrap {
+  display: flex; gap: 20px; align-items: center; flex-wrap: wrap;
+  background: #fff; border: 3px solid var(--line); border-radius: 18px;
+  padding: 16px; margin: 10px 0 6px;
+}
+.qrimg {
+  flex: 0 0 auto; padding: 0; border: 0; background: none; cursor: zoom-in;
+  line-height: 0; border-radius: 12px;
+}
+.qrimg svg { width: 260px; height: 260px; display: block; border-radius: 10px; }
+.qrimg:focus-visible { outline: 4px solid var(--theme); outline-offset: 3px; }
+.qrsay { flex: 1 1 240px; min-width: 220px; }
+.qrlead { font-family: var(--font-fun); font-size: 23px; line-height: 1.5; margin: 0 0 6px; }
+.btn.sm { font-size: 17px; padding: 8px 16px; margin-top: 8px; }
+.fallback { margin-top: 10px; }
+.fallback summary {
+  cursor: pointer; font-weight: 700; color: var(--ink-soft);
+  font-size: 17px; padding: 6px 0;
+}
+.fallback .code { min-height: 64px; margin: 6px 0 8px; }
+.qrover {
+  position: fixed; inset: 0; z-index: 90; display: flex; cursor: zoom-out;
+  align-items: center; justify-content: center; padding: 20px;
+  background: rgba(16, 24, 32, .82);
+}
+.qrcard {
+  background: #fff; border-radius: 20px; padding: 18px; text-align: center;
+  max-width: min(92vw, 560px);
+}
+.qrcard svg { width: min(78vw, 66vh, 460px); height: auto; display: block; margin: 0 auto; }
+.qrcard p { margin: 12px 0 0; color: var(--ink-soft); font-size: 17px; }
+@media (max-width: 560px) {
+  .qrimg svg { width: 218px; height: 218px; }
+  .qrlead { font-size: 21px; }
+}

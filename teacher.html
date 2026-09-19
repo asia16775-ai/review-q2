@@ -45,14 +45,20 @@
 
   <div class="card key">
     <span class="label">① ดูรายงานผลของน้อง</span>
-    <p style="margin:6px 0">ให้น้องกดปุ่ม <b>📋 คัดลอกรหัสผล</b> ตอนทำเสร็จ แล้วส่งมาให้ครูทางแชท
-      จากนั้นวางรหัสในช่องนี้</p>
-    <textarea class="code" id="codeIn" placeholder="วางรหัสผลที่น้องส่งมาตรงนี้..."></textarea>
-    <div class="btn-row" style="margin:12px 0 0">
-      <button class="btn" id="go">🔍 ดูรายงาน</button>
-      <button class="btn ghost" id="clr">ล้าง</button>
-    </div>
-    <p class="th" style="margin:8px 0 0">รหัสของน้องแต่ละคนแยกกัน — วางทีละคนได้เลย</p>
+    <p style="margin:6px 0"><b>📱 วิธีที่ง่ายที่สุด — ส่อง QR</b><br>
+      พอน้องทำเสร็จ หน้าจอน้องจะขึ้น <b>QR code</b> ค้างไว้ (น้องไม่ต้องกดอะไรเลย)
+      ครูเปิดกล้องมือถือส่องที่จอ แล้วกดลิงก์ที่เด้งขึ้นมา — รายงานจะเปิดขึ้นเองทันที</p>
+    <p class="th" style="margin:6px 0">ถ้าน้องแชร์หน้าจอมา ส่องจากจอคอมของครูได้เลย ·
+      ถ้า QR เล็กไป ให้น้องกด <b>🔍 ขยายให้ใหญ่ขึ้น</b></p>
+    <details style="margin:10px 0 0">
+      <summary style="cursor:pointer;font-weight:700;color:var(--ink-soft)">ส่องไม่ติด? วางลิงก์หรือรหัสตรงนี้แทน</summary>
+      <textarea class="code" id="codeIn" placeholder="วางลิงก์ (หรือรหัสผล) ที่น้องส่งมาตรงนี้..."></textarea>
+      <div class="btn-row" style="margin:12px 0 0">
+        <button class="btn" id="go">🔍 ดูรายงาน</button>
+        <button class="btn ghost" id="clr">ล้าง</button>
+      </div>
+    </details>
+    <p class="th" style="margin:8px 0 0">ผลของน้องแต่ละคนแยกกัน — ส่องทีละคนได้เลย</p>
   </div>
 
   <div class="card" id="report" style="display:none"></div>
@@ -151,10 +157,44 @@ function answerOf(it) {
 })();
 
 /* ---------------- ถอดรหัสผล ---------------- */
+var SUBJ_CH = { m: 'math', s: 'sci', e: 'eng' };
+
+/* รหัสแบบใหม่ (สั้น อยู่หลัง # ในลิงก์ QR):
+   2 + วิชา(1) + เวลารวม base36(3) + [คะแนน(1) + วินาที base36(2)] ต่อข้อ + '~' + ชื่อ(base64url) */
+function decodeV2(code) {
+  var m = code.match(/^2([mse])([0-9a-z]{3})((?:[0-9A-J][0-9a-z]{2})+)(?:~([A-Za-z0-9\-_]*))?$/);
+  if (!m) return null;
+  var name = '';
+  if (m[4]) {
+    try {
+      var b = m[4].replace(/-/g, '+').replace(/_/g, '/');
+      while (b.length % 4) b += '=';
+      name = decodeURIComponent(escape(atob(b)));
+    } catch (e) { name = ''; }
+  }
+  var rows = [];
+  for (var i = 0; i < m[3].length; i += 3) {
+    var g = m[3].charAt(i), help = /[A-J]/.test(g);
+    rows.push({
+      got: help ? g.charCodeAt(0) - 65 : parseInt(g, 10),
+      help: help,
+      sec: parseInt(m[3].substr(i + 1, 2), 36) || 0
+    });
+  }
+  return { subject: SUBJ_CH[m[1]], name: name || '-', total: parseInt(m[2], 36) || 0, rows: rows };
+}
+
 function decode(code) {
+  code = String(code || '').trim();
+  var hash = code.indexOf('#');                 /* วางมาทั้งลิงก์ก็ได้ ตัดเอาเฉพาะหลัง # */
+  if (hash >= 0) code = code.slice(hash + 1);
+  code = code.replace(/\s+/g, '');
+  var v2 = decodeV2(code);
+  if (v2) return v2;
+
   var raw;
-  try { raw = decodeURIComponent(escape(atob(code.trim()))); }
-  catch (e) { raw = code.trim(); }
+  try { raw = decodeURIComponent(escape(atob(code))); }
+  catch (e) { raw = code; }
   if (raw.indexOf('RQ2|') !== 0) return null;
   var p = raw.split('|');
   if (p.length < 5) return null;
@@ -168,8 +208,8 @@ function decode(code) {
   };
 }
 
-document.getElementById('go').addEventListener('click', function () {
-  var r = decode(document.getElementById('codeIn').value);
+function showReport(codeText) {
+  var r = decode(codeText);
   var box = document.getElementById('report');
   if (!r || !SETS[r.subject]) {
     box.style.display = 'block';
@@ -238,12 +278,28 @@ document.getElementById('go').addEventListener('click', function () {
   box.style.display = 'block';
   box.innerHTML = h;
   box.scrollIntoView({ behavior: 'smooth' });
+}
+
+document.getElementById('go').addEventListener('click', function () {
+  showReport(document.getElementById('codeIn').value);
 });
 
 document.getElementById('clr').addEventListener('click', function () {
   document.getElementById('codeIn').value = '';
   document.getElementById('report').style.display = 'none';
+  if (location.hash) history.replaceState(null, '', location.pathname);
 });
+
+/* ---- ครูส่อง QR แล้วมาถึงหน้านี้พร้อมผลในลิงก์ → แสดงรายงานให้เลย ---- */
+function fromHash() {
+  var hh = location.hash.replace(/^#/, '');
+  if (!hh) return;
+  if (!decode(hh)) return;
+  document.getElementById('codeIn').value = hh;
+  showReport(hh);
+}
+window.addEventListener('hashchange', fromHash);
+fromHash();
 </script>
 </body>
 </html>
