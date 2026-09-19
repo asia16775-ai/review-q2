@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>แบบฝึกหัด — Science IE 2nd Quarter Revision</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@400;700&family=Mali:wght@600;700&family=Nunito:wght@700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body class="sci">
+
+<header class="topbar">
+  <div class="wrap">
+    <a class="back" href="../index.html">🏠 หน้าแรก</a>
+    <h1>✏️ แบบฝึกหัด — วิทยาศาสตร์</h1>
+    <a class="back" href="learn.html">📖 กลับไปหน้าสอน</a>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <div class="hero" style="padding:22px 0 4px">
+    <div class="emoji">🌱</div>
+    <h1>Science IE — 2nd Quarter Revision</h1>
+    <p>ข้อสอบจริงทั้ง <b>25 คะแนน</b> · ตอบแล้วรู้เฉลยทันทีพร้อมวิธีคิดทีละขั้น</p>
+  </div>
+
+  <div class="card tip">
+    <span class="label">วิธีใช้</span>
+    <p style="margin:6px 0">แตะเลือกคำตอบหรือพิมพ์คำตอบ แล้วเฉลยจะขึ้นมาเองพร้อม<b>วิธีคิดทีละขั้น</b></p>
+    <p style="margin:6px 0">ข้อไหนงง กดปุ่ม <b>🙋 ติดข้อนี้ ขอครูอธิบาย</b> ได้เลย ครูจะเห็นทันที</p>
+    <p style="margin:6px 0">แถบเลขข้อข้างบนกดได้ — <b>เขียว = ถูก · แดง = ผิด · ส้ม = ขอครูช่วย</b></p>
+  </div>
+
+  <div class="helpbox" id="helpbox"></div>
+
+  <div id="quiz"></div>
+
+  <div class="card result" id="result"></div>
+
+  <div class="btn-row">
+    <a class="btn ghost" href="learn.html">📖 หน้าสอน</a>
+    <a class="btn ghost" href="../index.html">🏠 หน้าแรก</a>
+  </div>
+
+  <p class="foot">สื่อทบทวนข้อสอบจริง ป.3 · Quarter 2</p>
+</main>
+
+<script src="../assets/figures.js"></script>
+<script src="../assets/data-science.js"></script>
+<script src="../assets/engine.js"></script>
+<script>Quiz.init(DATA_SCIENCE);</script>
+</body>
+</html>

@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>สำหรับครู — ทบทวนข้อสอบจริง ป.3</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@400;700&family=Mali:wght@600;700&family=Nunito:wght@700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+<style>
+  body.home { --theme:#5b48c8; --theme2:#8b7aff; }
+  .rt { width:100%; border-collapse:collapse; margin:12px 0; font-size:17px; }
+  .rt th, .rt td { border:2px solid var(--line); padding:7px 10px; text-align:left; }
+  .rt th { background:#efecff; color:#4a38b0; }
+  .rt tr.wrong td { background:#fff2f4; }
+  .rt tr.slow td { background:#fff8e6; }
+  .rt .badge { border-radius:999px; padding:2px 10px; font-size:15px; font-weight:700; }
+  .b-ok { background:#d6f7e5; color:#0b6b3c; }
+  .b-no { background:#ffe0e5; color:#9c1028; }
+  .b-part { background:#e6f7ee; color:#0b6b3c; }
+  .b-help { background:#ffeccd; color:#a35c00; }
+  .keytable td, .keytable th { font-size:16px; padding:6px 9px; }
+  .keytable .ans { color:var(--ok); font-weight:800; }
+  details { background:#fff; border:3px solid var(--line); border-radius:14px; padding:12px 16px; margin:12px 0; }
+  summary { font-weight:700; font-size:20px; cursor:pointer; color:var(--theme); }
+</style>
+</head>
+<body class="home">
+
+<header class="topbar">
+  <div class="wrap">
+    <a class="back" href="index.html">🏠 หน้าแรก</a>
+    <h1>👩‍🏫 สำหรับครู</h1>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <div class="hero">
+    <div class="emoji">👩‍🏫</div>
+    <h1>หน้าสำหรับครู</h1>
+    <p>ดูรายงานผลของน้องแต่ละคน · เฉลยทั้งหมด · แนวทางการสอน</p>
+  </div>
+
+  <div class="card key">
+    <span class="label">① ดูรายงานผลของน้อง</span>
+    <p style="margin:6px 0">ให้น้องกดปุ่ม <b>📋 คัดลอกรหัสผล</b> ตอนทำเสร็จ แล้วส่งมาให้ครูทางแชท
+      จากนั้นวางรหัสในช่องนี้</p>
+    <textarea class="code" id="codeIn" placeholder="วางรหัสผลที่น้องส่งมาตรงนี้..."></textarea>
+    <div class="btn-row" style="margin:12px 0 0">
+      <button class="btn" id="go">🔍 ดูรายงาน</button>
+      <button class="btn ghost" id="clr">ล้าง</button>
+    </div>
+    <p class="th" style="margin:8px 0 0">รหัสของน้องแต่ละคนแยกกัน — วางทีละคนได้เลย</p>
+  </div>
+
+  <div class="card" id="report" style="display:none"></div>
+
+  <div class="card tip">
+    <span class="label">② ระหว่างสอนออนไลน์ ครูดูอะไรได้บ้าง</span>
+    <p style="margin:6px 0">ตอนน้องแชร์หน้าจอ ให้ดูที่ <b>แถบเลขข้อด้านบนสุด</b> — เห็นทุกอย่างใน 1 วินาที</p>
+    <ul style="margin:8px 0">
+      <li><b>⬜ เทา</b> = ยังไม่ทำ → รู้ว่าน้องทำถึงไหนแล้ว</li>
+      <li><b>🟩 เขียว</b> = ตอบถูก</li>
+      <li><b>🟥 แดง</b> = ตอบผิด → เข้าไปอธิบายข้อนั้นได้เลย</li>
+      <li><b>🟧 ส้ม</b> = น้องกดปุ่ม 🙋 ขอให้ครูอธิบาย</li>
+    </ul>
+    <p style="margin:6px 0">กดที่<b>เลขข้อ</b>บนแถบ จะกระโดดไปข้อนั้นทันที — ใช้ตอนจะชวนคุยเรื่องข้อไหนก็ได้</p>
+    <p style="margin:6px 0"><b>นาฬิกามุมขวา</b> กด <b>⏱ ตั้งเวลา</b> เพื่อกำหนดเวลาทำ (เช่น 20 นาที)
+      · ใส่ 0 = ไม่นับถอยหลัง · ปุ่ม <b>⏸ พัก</b> ใช้ตอนหยุดอธิบายกลางคัน เวลาจะไม่เดิน</p>
+  </div>
+
+  <div class="card">
+    <h2 style="margin-top:0">③ เฉลยทั้งหมด</h2>
+    <p class="th">กดหัวข้อเพื่อเปิดดู — มีคำตอบทุกข้อพร้อมเหตุผลสั้น ๆ</p>
+    <div id="keys"></div>
+  </div>
+
+  <div class="card key">
+    <h2 style="margin-top:0">④ ลำดับการสอนที่แนะนำ</h2>
+    <ol>
+      <li><b>เปิดหน้าสอนของวิชานั้นก่อน</b> แล้วแชร์จอสอนไปทีละหัวข้อตามหมายเลข
+        (หน้าสอนมีปุ่มกระโดดหัวข้ออยู่ด้านบน)</li>
+      <li>หน้าสอน<b>มีของเล่นให้กดระหว่างสอน</b> — ใช้ตรงนี้ให้เป็นประโยชน์
+        <ul>
+          <li>คณิต: <b>นาฬิกาสุ่มเวลา</b> (ให้น้องผลัดกันอ่าน) · <b>บ้านไฮไลต์เส้นนอน/เส้นตั้ง</b></li>
+          <li>วิทย์: <b>การ์ดคำศัพท์พลิกได้</b> · <b>เช็กลิสต์ 6 ห้อง</b></li>
+          <li>อังกฤษ: <b>ตัวแยกเสียง /s/ /z/ /ɪz/</b> · <b>แผนที่เดินตามเส้น</b></li>
+        </ul>
+      </li>
+      <li>สอนจบแล้วให้น้อง<b>เปิดหน้าแบบฝึกหัดในเครื่องตัวเอง</b> แล้วแชร์จอกลับมาให้ครูดู</li>
+      <li>ครูดูแถบเลขข้อ เห็นแดงหรือส้มตรงไหนก็เข้าไปอธิบาย</li>
+      <li>ทำครบแล้วให้กด <b>คัดลอกรหัสผล</b> ส่งมา ครูเอามาวางข้างบนดูรายงานเต็ม</li>
+    </ol>
+    <p><b>ถ้าน้อง 2 คนทำไม่เท่ากัน</b> — คนที่เสร็จก่อนให้กด
+      <b>🔁 ทำเฉพาะข้อที่ผิดอีกรอบ</b> ในหน้าสรุปผล จะได้มีอะไรทำระหว่างรออีกคน</p>
+  </div>
+
+  <div class="card warn">
+    <h2 style="margin-top:0">⑤ ข้อที่ควรระวังเป็นพิเศษ</h2>
+    <p><b>คณิต B1 (อ่านนาฬิกา)</b> — รูปในกระดาษข้อสอบจริงวาดเข็มทั้งสองข้าง<b>ยาวเท่ากัน</b>
+      จึงแยกไม่ออกว่าอันไหนเข็มสั้น คำตอบที่ข้อสอบต้องการคือ <b>9:15</b>
+      ถ้าน้องตอบ 3:45 ให้ชมว่าคิดมีเหตุผล แล้วสอนว่า<b>เข็มสั้นคือชั่วโมงเสมอ</b></p>
+    <p><b>อังกฤษ Q1–Q5 (บอกทาง)</b> — คำบอกทางเขียนได้หลายแบบ ในเว็บเลือกคำที่ตรงกับเส้นทางในแผนที่ที่สุด
+      ถ้าน้องตอบต่างออกไปแต่มีเหตุผล ให้ชวนคุยว่า<b>ถ้ายืนตรงนั้นจริง ๆ จะหันไปทางไหน</b></p>
+    <p><b>วิทย์ 15–25 (เขียนรายการ)</b> — เว็บรับคำตอบภาษาไทยด้วยเพื่อไม่ให้น้องท้อ
+      แต่<b>ตอนสอบจริงต้องเขียนภาษาอังกฤษ</b> ย้ำกับน้องด้วย</p>
+  </div>
+
+  <p class="foot">สื่อทบทวนข้อสอบจริง ป.3 · Quarter 2</p>
+</main>
+
+<script src="assets/figures.js"></script>
+<script src="assets/data-math.js"></script>
+<script src="assets/data-science.js"></script>
+<script src="assets/data-english.js"></script>
+<script>
+var SETS = { math: DATA_MATH, sci: DATA_SCIENCE, eng: DATA_ENGLISH };
+var NAMES = { math: 'คณิตศาสตร์', sci: 'วิทยาศาสตร์', eng: 'ภาษาอังกฤษ' };
+var KEY = 'กขคง';
+
+function strip(h) { return String(h).replace(/<[^>]*>/g, '').replace(/\s+/g, ' ').trim(); }
+function mmss(s) {
+  s = Math.max(0, Math.round(s));
+  var m = Math.floor(s / 60), r = s % 60;
+  return (m < 10 ? '0' : '') + m + ':' + (r < 10 ? '0' : '') + r;
+}
+function answerOf(it) {
+  if (it.t === 'mc') return KEY[it.a] + '. ' + strip(it.o[it.a]);
+  if (it.t === 'bank' || it.t === 'fill') return it.ans[0];
+  if (it.t === 'list') return 'ตอบได้หลายแบบ — เช่น ' +
+    it.pool.slice(0, it.n).map(function (g) { return g[0]; }).join(', ');
+  return '';
+}
+
+/* ---------------- เฉลยทั้งหมด ---------------- */
+(function () {
+  var out = '';
+  Object.keys(SETS).forEach(function (k) {
+    var d = SETS[k];
+    out += '<details><summary>' + NAMES[k] + ' — ' + d.title + ' (' + d.items.length + ' ข้อ)</summary>' +
+      '<div class="scroll"><table class="rt keytable"><tr><th>ข้อ</th><th>โจทย์</th><th>เฉลย</th><th>เรื่อง</th></tr>';
+    d.items.forEach(function (it, i) {
+      out += '<tr><td><b>' + (it.label || (i + 1)) + '</b></td><td>' + strip(it.q).slice(0, 90) +
+        '</td><td class="ans">' + strip(answerOf(it)) + '</td><td>' + it.topic + '</td></tr>';
+    });
+    out += '</table></div></details>';
+  });
+  document.getElementById('keys').innerHTML = out;
+})();
+
+/* ---------------- ถอดรหัสผล ---------------- */
+function decode(code) {
+  var raw;
+  try { raw = decodeURIComponent(escape(atob(code.trim()))); }
+  catch (e) { raw = code.trim(); }
+  if (raw.indexOf('RQ2|') !== 0) return null;
+  var p = raw.split('|');
+  if (p.length < 5) return null;
+  return {
+    subject: p[1], name: p[2], total: parseInt(p[3], 36) || 0,
+    rows: p[4].split(',').map(function (c) {
+      var m = c.match(/^([0-9a-z]+)([h.])([0-9a-z]*)$/);
+      if (!m) return { got: 0, help: false, sec: 0 };
+      return { got: parseInt(m[1], 36) || 0, help: m[2] === 'h', sec: parseInt(m[3], 36) || 0 };
+    })
+  };
+}
+
+document.getElementById('go').addEventListener('click', function () {
+  var r = decode(document.getElementById('codeIn').value);
+  var box = document.getElementById('report');
+  if (!r || !SETS[r.subject]) {
+    box.style.display = 'block';
+    box.innerHTML = '<h2 style="margin-top:0;color:var(--no)">❌ อ่านรหัสไม่ได้</h2>' +
+      '<p>ลองให้น้องกดปุ่ม <b>📋 คัดลอกรหัสผล</b> ใหม่อีกครั้ง แล้ววางทั้งก้อน ' +
+      'อย่าให้มีช่องว่างหรือตัวอักษรอื่นปนมา</p>';
+    return;
+  }
+  var d = SETS[r.subject], items = d.items;
+  var maxPts = 0, got = 0, byT = {}, wrong = [], helps = [];
+  items.forEach(function (it, i) {
+    var pts = it.pts || 1, row = r.rows[i] || { got: 0, help: false, sec: 0 };
+    maxPts += pts; got += row.got;
+    byT[it.topic] = byT[it.topic] || { g: 0, m: 0 };
+    byT[it.topic].g += row.got; byT[it.topic].m += pts;
+    if (row.got < pts) wrong.push(it.label || (i + 1));
+    if (row.help) helps.push(it.label || (i + 1));
+  });
+  var secs = r.rows.map(function (x) { return x.sec || 0; });
+  var avg = secs.reduce(function (a, b) { return a + b; }, 0) / (secs.length || 1);
+
+  var pc = Math.round(got / maxPts * 100);
+  var h = '<h2 style="margin-top:0">📊 ' + (r.name || '-') + ' — ' + NAMES[r.subject] + '</h2>' +
+    '<p style="font-size:22px">คะแนน <b style="font-size:30px;color:var(--theme)">' + got + '/' + maxPts +
+    '</b> (' + pc + '%) &nbsp;·&nbsp; ใช้เวลารวม <b>' + mmss(r.total) + '</b></p>';
+
+  h += '<h3>คะแนนแยกตามเรื่อง</h3><div class="bars">';
+  Object.keys(byT).forEach(function (k) {
+    var b = byT[k], p = b.m ? b.g / b.m : 0;
+    h += '<div class="bar ' + (p >= 0.8 ? 'good' : (p < 0.6 ? 'weak' : '')) + '">' +
+      '<span class="n">' + k + '</span><span class="v">' + b.g + '/' + b.m + '</span>' +
+      '<span class="a">' + (p >= 0.8 ? 'แน่นแล้ว' : (p < 0.6 ? '⚠️ ต้องสอนซ้ำเรื่องนี้' : 'พอใช้ ควรทบทวน')) +
+      '</span></div>';
+  });
+  h += '</div>';
+
+  if (helps.length) h += '<div class="card warn" style="margin:14px 0"><span class="label">🙋 ข้อที่น้องขอให้อธิบาย</span>' +
+    '<p style="margin:6px 0;font-size:21px"><b>ข้อ ' + helps.join(', ') + '</b></p></div>';
+
+  h += '<h3>รายละเอียดทีละข้อ</h3><p class="th">แถวแดง = ตอบผิด · แถวเหลือง = ใช้เวลานานกว่าค่าเฉลี่ยมาก (จุดที่ลังเล)</p>';
+  h += '<div class="scroll"><table class="rt"><tr><th>ข้อ</th><th>ผล</th><th>เวลา</th><th>โจทย์</th><th>เฉลย</th></tr>';
+  items.forEach(function (it, i) {
+    var pts = it.pts || 1, row = r.rows[i] || { got: 0, help: false, sec: 0 };
+    var full = row.got >= pts, part = row.got > 0 && !full;
+    var slow = row.sec > avg * 1.8 && row.sec > 20;
+    var cls = !full ? 'wrong' : (slow ? 'slow' : '');
+    var badge = full ? '<span class="badge b-ok">ถูก</span>'
+      : part ? '<span class="badge b-part">' + row.got + '/' + pts + '</span>'
+      : '<span class="badge b-no">ผิด</span>';
+    if (row.help) badge += ' <span class="badge b-help">🙋</span>';
+    h += '<tr class="' + cls + '"><td><b>' + (it.label || (i + 1)) + '</b></td><td>' + badge + '</td>' +
+      '<td>' + mmss(row.sec) + (slow ? ' ⏳' : '') + '</td>' +
+      '<td>' + strip(it.q).slice(0, 70) + '</td>' +
+      '<td>' + strip(answerOf(it)).slice(0, 44) + '</td></tr>';
+  });
+  h += '</table></div>';
+
+  h += '<div class="card ' + (wrong.length ? 'warn' : 'good') + '" style="margin:14px 0 0">' +
+    '<span class="label">สรุปสิ่งที่ควรทำต่อ</span>' +
+    (wrong.length
+      ? '<p style="margin:6px 0">ข้อที่ต้องซ่อม: <b>' + wrong.join(', ') + '</b></p>' +
+        '<p style="margin:6px 0">ให้น้องกลับไปอ่าน<b>หน้าสอน</b>เฉพาะเรื่องที่คะแนนต่ำกว่า 60% ' +
+        'แล้วกด <b>🔁 ทำเฉพาะข้อที่ผิดอีกรอบ</b> ในหน้าสรุปผล</p>'
+      : '<p style="margin:6px 0">🎉 ถูกหมดทุกข้อ! ไปต่อวิชาอื่นได้เลย</p>') + '</div>';
+
+  box.style.display = 'block';
+  box.innerHTML = h;
+  box.scrollIntoView({ behavior: 'smooth' });
+});
+
+document.getElementById('clr').addEventListener('click', function () {
+  document.getElementById('codeIn').value = '';
+  document.getElementById('report').style.display = 'none';
+});
+</script>
+</body>
+</html>

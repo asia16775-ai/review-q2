@@ -1,0 +1,370 @@
+/* ============================================================
+   Review Quarter 2 — สื่อทบทวนข้อสอบจริง ป.3
+   ใช้ร่วมกันทุกหน้า
+   ============================================================ */
+:root {
+  --ink: #1d2b3a;
+  --ink-soft: #62748a;
+  --line: #dfe6ef;
+  --bg: #f4f7fb;
+  --card: #ffffff;
+
+  --ok: #17a05e;
+  --ok-soft: #e4f7ed;
+  --no: #e0364f;
+  --no-soft: #ffeaed;
+  --help: #f08c1a;
+  --help-soft: #fff3e0;
+
+  --math: #3b5bdb;
+  --math-2: #6f8bff;
+  --sci: #12866b;
+  --sci-2: #37bd98;
+  --eng: #d6336c;
+  --eng-2: #ff7aa8;
+
+  --radius: 18px;
+  --shadow: 0 6px 20px rgba(29, 43, 58, .08);
+  --font-th: 'Sarabun', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-fun: 'Mali', 'Sarabun', cursive;
+}
+
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+body {
+  margin: 0; background: var(--bg); color: var(--ink);
+  font-family: var(--font-th); font-size: 19px; line-height: 1.8;
+}
+.wrap { max-width: 940px; margin: 0 auto; padding: 0 16px; }
+a { color: inherit; }
+
+/* ---------- theme per subject ---------- */
+body.math { --theme: var(--math); --theme2: var(--math-2); }
+body.sci  { --theme: var(--sci);  --theme2: var(--sci-2); }
+body.eng  { --theme: var(--eng);  --theme2: var(--eng-2); }
+body.home { --theme: #5b48c8;     --theme2: #8b7aff; }
+
+/* ---------- top bar ---------- */
+.topbar {
+  background: linear-gradient(135deg, var(--theme, #5b48c8), var(--theme2, #8b7aff));
+  color: #fff; padding: 12px 0; position: relative;
+}
+.topbar .wrap { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+.topbar h1 { font-size: 21px; margin: 0; font-weight: 700; flex: 1 1 auto; }
+.topbar a { color: #fff; text-decoration: none; }
+.topbar .back {
+  background: rgba(255,255,255,.2); border-radius: 999px;
+  padding: 5px 16px; font-size: 17px; white-space: nowrap;
+}
+.topbar .back:active { background: rgba(255,255,255,.34); }
+
+/* ---------- hero ---------- */
+.hero { text-align: center; padding: 30px 0 6px; }
+.hero .emoji { font-size: 56px; line-height: 1; }
+.hero h1 { font-family: var(--font-fun); font-size: 34px; margin: 8px 0 4px; color: var(--theme); }
+.hero p { color: var(--ink-soft); margin: 0; }
+
+/* ---------- cards ---------- */
+.card {
+  background: var(--card); border: 2px solid var(--line); border-radius: var(--radius);
+  padding: 20px 22px; margin: 18px 0; box-shadow: var(--shadow);
+}
+.card > :first-child { margin-top: 0; }
+.card > :last-child { margin-bottom: 0; }
+.card.tip  { background: #fff8e8; border-color: #f6e0ad; }
+.card.warn { background: var(--no-soft); border-color: #f6c3cb; }
+.card.key  { background: #eaf2ff; border-color: #c2d6f7; }
+.card.good { background: var(--ok-soft); border-color: #b4e5cd; }
+.label {
+  display: inline-block; background: var(--theme); color: #fff;
+  border-radius: 999px; padding: 3px 16px; font-size: 15px; font-weight: 700; margin-bottom: 6px;
+}
+.card.tip  .label { background: #e0a020; }
+.card.warn .label { background: var(--no); }
+.card.good .label { background: var(--ok); }
+
+h2 { font-size: 27px; margin: 34px 0 8px; color: var(--theme); line-height: 1.4; }
+h2 .num {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 40px; height: 40px; border-radius: 12px; background: var(--theme);
+  color: #fff; font-size: 22px; margin-right: 10px; vertical-align: -6px;
+}
+h3 { font-size: 22px; margin: 22px 0 6px; }
+p { margin: 10px 0; }
+ul, ol { margin: 10px 0; padding-left: 26px; }
+li { margin: 5px 0; }
+b, strong { color: inherit; }
+.th { color: var(--ink-soft); font-size: 17px; }
+.hl { background: #fff0a6; padding: 0 5px; border-radius: 5px; }
+.en { font-family: 'Nunito', var(--font-th); font-weight: 700; }
+
+/* ---------- tables ---------- */
+table { width: 100%; border-collapse: collapse; margin: 14px 0; font-size: 18px; }
+th, td { border: 2px solid var(--line); padding: 9px 12px; text-align: left; vertical-align: middle; }
+th { background: #e9eefa; color: var(--theme); }
+.scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; margin: 14px -16px; padding: 0 16px; }
+
+/* ---------- buttons ---------- */
+.btn {
+  display: inline-block; background: var(--theme); color: #fff; border: none;
+  border-radius: 14px; padding: 12px 26px; font-family: inherit; font-size: 19px;
+  font-weight: 700; cursor: pointer; text-decoration: none; box-shadow: 0 4px 0 rgba(0,0,0,.16);
+}
+.btn:active { transform: translateY(3px); box-shadow: 0 1px 0 rgba(0,0,0,.16); }
+.btn.ghost { background: #fff; color: var(--theme); border: 3px solid var(--theme); box-shadow: none; }
+.btn.small { font-size: 16px; padding: 8px 18px; box-shadow: none; }
+.btn:disabled { opacity: .45; cursor: default; }
+.btn-row { display: flex; gap: 12px; flex-wrap: wrap; margin: 24px 0; }
+
+/* ---------- subject menu (home) ---------- */
+.subjects { display: grid; gap: 18px; grid-template-columns: repeat(auto-fit, minmax(270px, 1fr)); margin: 22px 0; }
+.subj {
+  display: block; text-decoration: none; color: inherit; background: #fff;
+  border: 3px solid var(--line); border-top-width: 10px; border-radius: 20px;
+  padding: 20px; box-shadow: var(--shadow); transition: transform .15s;
+}
+.subj:hover { transform: translateY(-4px); }
+.subj .emo { font-size: 44px; line-height: 1; }
+.subj .t { font-family: var(--font-fun); font-size: 24px; margin: 6px 0 2px; }
+.subj .d { color: var(--ink-soft); font-size: 17px; }
+.subj .pills { display: flex; gap: 8px; margin-top: 12px; flex-wrap: wrap; }
+.subj .pill {
+  background: #eef2f8; border-radius: 999px; padding: 4px 14px; font-size: 15px; font-weight: 700;
+}
+.subj.m { border-color: #c9d4f8; border-top-color: var(--math); }
+.subj.m .t, .subj.m .pill.go { color: #fff; background: var(--math); }
+.subj.s { border-color: #bfe6da; border-top-color: var(--sci); }
+.subj.s .t, .subj.s .pill.go { color: #fff; background: var(--sci); }
+.subj.e { border-color: #f9c9da; border-top-color: var(--eng); }
+.subj.e .t, .subj.e .pill.go { color: #fff; background: var(--eng); }
+.subj .t { background: none !important; }
+.subj.m .t { color: var(--math); }
+.subj.s .t { color: var(--sci); }
+.subj.e .t { color: var(--eng); }
+
+/* ============================================================
+   แถบสถานะ (ครูดูจากหน้าจอที่แชร์ได้ทันที)
+   ============================================================ */
+.statusbar {
+  position: sticky; top: 0; z-index: 30;
+  background: linear-gradient(135deg, var(--theme), var(--theme2));
+  color: #fff; box-shadow: 0 4px 14px rgba(0,0,0,.18);
+}
+.statusbar .row1 {
+  display: flex; gap: 14px; align-items: center; flex-wrap: wrap;
+  padding: 9px 16px; max-width: 940px; margin: 0 auto;
+}
+.statusbar .who { font-weight: 700; font-size: 18px; }
+.statusbar .stat { font-size: 17px; }
+.statusbar .stat b { font-size: 21px; }
+.statusbar .clock {
+  background: rgba(255,255,255,.22); border-radius: 999px; padding: 4px 16px;
+  font-family: 'Nunito', monospace; font-size: 21px; font-weight: 800; letter-spacing: 1px;
+}
+.statusbar .clock.warn { background: #ffd34d; color: #6b4a00; }
+.statusbar .clock.over { background: var(--no); }
+.statusbar .mini {
+  background: rgba(255,255,255,.2); border: 2px solid rgba(255,255,255,.45); color: #fff;
+  border-radius: 999px; padding: 3px 14px; font-family: inherit; font-size: 15px;
+  font-weight: 700; cursor: pointer;
+}
+.statusbar .mini:active { transform: scale(.96); }
+.statusbar .spacer { flex: 1 1 auto; }
+
+/* แถบเลขข้อ */
+.strip {
+  display: flex; gap: 5px; flex-wrap: wrap; padding: 0 16px 9px;
+  max-width: 940px; margin: 0 auto;
+}
+.strip .dot {
+  width: 30px; height: 30px; border-radius: 9px; border: none;
+  background: rgba(255,255,255,.28); color: #fff;
+  font-family: 'Nunito', sans-serif; font-size: 14px; font-weight: 800; cursor: pointer;
+}
+.strip .dot.ok   { background: #2ee08a; color: #06452a; }
+.strip .dot.no   { background: #ff8095; color: #5c0011; }
+.strip .dot.part { background: #bff0d0; color: #06452a; }
+.strip .dot.help { background: #ffc251; color: #6b4a00; }
+.strip .dot:active { transform: scale(.9); }
+
+/* รายการข้อที่ขอความช่วยเหลือ */
+.helpbox {
+  display: none; background: var(--help-soft); border: 3px solid #f6cf95;
+  border-radius: 16px; padding: 14px 18px; margin: 16px 0;
+}
+.helpbox.show { display: block; }
+.helpbox b { color: #a35c00; }
+.helpbox .chips { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 8px; }
+.helpbox .chips button {
+  background: #fff; border: 2px solid var(--help); color: #a35c00; border-radius: 999px;
+  padding: 4px 16px; font-family: inherit; font-size: 16px; font-weight: 700; cursor: pointer;
+}
+
+/* ============================================================
+   ข้อสอบ
+   ============================================================ */
+.q {
+  background: #fff; border: 3px solid var(--line); border-radius: var(--radius);
+  padding: 18px 20px; margin: 20px 0; box-shadow: var(--shadow); scroll-margin-top: 118px;
+}
+.q.ok   { border-color: var(--ok); background: #f6fffa; }
+.q.no   { border-color: var(--no); background: #fffafb; }
+.q.help { border-color: var(--help); background: #fffcf5; }
+
+.q .head { display: flex; gap: 10px; align-items: flex-start; }
+.q .qnum {
+  flex: none; width: 40px; height: 40px; border-radius: 12px; background: var(--theme);
+  color: #fff; display: flex; align-items: center; justify-content: center;
+  font-family: 'Nunito', sans-serif; font-size: 20px; font-weight: 800;
+}
+.q .qtext { font-size: 21px; font-weight: 700; flex: 1 1 auto; }
+.q .qsub { color: var(--ink-soft); font-size: 17px; margin: 6px 0 0 50px; }
+.q .fig { text-align: center; margin: 14px 0; }
+.q .fig svg { max-width: 100%; height: auto; }
+
+.opts { display: grid; gap: 10px; margin-top: 14px; }
+.opts.two { grid-template-columns: 1fr 1fr; }
+@media (max-width: 560px) { .opts.two { grid-template-columns: 1fr; } }
+.opt {
+  display: flex; gap: 12px; align-items: center; text-align: left;
+  background: #fff; border: 3px solid var(--line); border-radius: 14px;
+  padding: 11px 15px; font-family: inherit; font-size: 19px; cursor: pointer; color: inherit;
+}
+.opt:hover:not(:disabled) { border-color: var(--theme); background: #f7faff; }
+.opt:active:not(:disabled) { transform: scale(.99); }
+.opt .k {
+  flex: none; width: 34px; height: 34px; border-radius: 10px; background: #eef2f8;
+  display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 17px;
+}
+.opt:disabled { cursor: default; }
+.opt.correct { background: var(--ok-soft); border-color: var(--ok); font-weight: 700; }
+.opt.correct .k { background: var(--ok); color: #fff; }
+.opt.wrong { background: var(--no-soft); border-color: var(--no); }
+.opt.wrong .k { background: var(--no); color: #fff; }
+.opt.dim { opacity: .45; }
+
+.fill { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; margin-top: 14px; }
+.fill input {
+  font-family: inherit; font-size: 21px; font-weight: 700; padding: 10px 14px;
+  border: 3px solid var(--line); border-radius: 12px; background: #fff; min-width: 140px; flex: 0 1 260px;
+}
+.fill input:focus { outline: none; border-color: var(--theme); }
+.fill input.ok { border-color: var(--ok); background: var(--ok-soft); }
+.fill input.no { border-color: var(--no); background: var(--no-soft); }
+.fill .unit { font-weight: 700; color: var(--ink-soft); }
+
+/* ช่องคำ (word bank) */
+.bank { display: flex; gap: 8px; flex-wrap: wrap; margin: 12px 0 4px; }
+.bank button {
+  background: #fff; border: 3px solid var(--line); border-radius: 999px;
+  padding: 7px 18px; font-family: inherit; font-size: 18px; font-weight: 700; cursor: pointer;
+}
+.bank button:hover:not(:disabled) { border-color: var(--theme); }
+.bank button.sel { background: var(--theme); border-color: var(--theme); color: #fff; }
+.bank button:disabled { opacity: .5; cursor: default; }
+
+/* รายการ (เขียนหลายบรรทัด) */
+.listq { display: grid; gap: 8px; margin-top: 14px; }
+.listq input {
+  font-family: inherit; font-size: 19px; padding: 9px 14px;
+  border: 3px solid var(--line); border-radius: 12px; width: 100%;
+}
+.listq input:focus { outline: none; border-color: var(--theme); }
+.listq input.ok { border-color: var(--ok); background: var(--ok-soft); }
+.listq input.no { border-color: var(--no); background: var(--no-soft); }
+
+/* เฉลย */
+.fb { display: none; margin-top: 16px; border-radius: 14px; padding: 15px 18px; font-size: 18px; }
+.fb.show { display: block; animation: pop .22s ease-out; }
+.fb.ok { background: var(--ok-soft); border: 3px solid var(--ok); }
+.fb.no { background: var(--no-soft); border: 3px solid var(--no); }
+.fb .h { font-size: 20px; font-weight: 700; margin-bottom: 6px; }
+.fb.ok .h { color: #0b6b3c; }
+.fb.no .h { color: #9c1028; }
+.fb ol, .fb ul { margin: 8px 0; padding-left: 24px; }
+.fb .step { background: rgba(255,255,255,.72); border-radius: 10px; padding: 8px 12px; margin: 6px 0; }
+.fb .step b { color: var(--theme); }
+@keyframes pop { from { transform: scale(.97); opacity: 0 } to { transform: scale(1); opacity: 1 } }
+
+.qbtns { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 14px; align-items: center; }
+.helpbtn {
+  background: #fff; border: 3px solid var(--help); color: #a35c00; border-radius: 999px;
+  padding: 7px 18px; font-family: inherit; font-size: 16px; font-weight: 700; cursor: pointer;
+}
+.helpbtn:active { transform: scale(.97); }
+.helpbtn.on { background: var(--help); color: #fff; }
+
+/* ---------- ผลสอบ ---------- */
+.result { display: none; }
+.result.show { display: block; }
+.result .big {
+  font-family: var(--font-fun); font-size: 58px; text-align: center; color: var(--theme); line-height: 1.1;
+}
+.result .msg { text-align: center; font-size: 21px; margin: 4px 0 18px; }
+.bars { display: grid; gap: 12px; margin: 16px 0; }
+.bar {
+  display: flex; gap: 12px; align-items: center; flex-wrap: wrap;
+  background: #fff; border: 3px solid var(--line); border-radius: 14px; padding: 12px 16px;
+}
+.bar.good { border-color: var(--ok); background: var(--ok-soft); }
+.bar.weak { border-color: var(--no); background: var(--no-soft); }
+.bar .n { font-weight: 700; flex: 1 1 210px; }
+.bar .v { font-family: 'Nunito', sans-serif; font-size: 22px; font-weight: 800; }
+.bar .a { flex: 1 1 100%; font-size: 17px; color: var(--ink-soft); }
+
+.code {
+  width: 100%; min-height: 90px; font-family: monospace; font-size: 13px;
+  border: 3px solid var(--line); border-radius: 12px; padding: 10px; resize: vertical;
+}
+
+/* ---------- ยินดีด้วย ---------- */
+.confetti { position: fixed; inset: 0; pointer-events: none; z-index: 60; overflow: hidden; display: none; }
+.confetti.go { display: block; }
+.confetti i {
+  position: absolute; width: 11px; height: 17px; border-radius: 3px;
+  animation: fall linear forwards;
+}
+@keyframes fall {
+  from { transform: translateY(-40px) rotate(0deg); opacity: 1 }
+  to   { transform: translateY(105vh) rotate(720deg); opacity: .9 }
+}
+
+/* ---------- misc ---------- */
+.foot { text-align: center; color: #9aaabd; font-size: 16px; margin: 42px 0 18px; }
+.grid2 { display: grid; gap: 16px; grid-template-columns: 1fr 1fr; }
+@media (max-width: 640px) { .grid2 { grid-template-columns: 1fr; } }
+.figrow { display: flex; gap: 18px; flex-wrap: wrap; justify-content: center; align-items: center; margin: 14px 0; }
+.figcard {
+  background: #fff; border: 3px solid var(--line); border-radius: 16px; padding: 12px; text-align: center;
+}
+.figcard .cap { font-size: 17px; color: var(--ink-soft); margin-top: 6px; }
+
+@media print {
+  .statusbar, .btn-row, .helpbtn, .qbtns, .strip { display: none !important; }
+  .q { break-inside: avoid; }
+}
+
+/* ---------- การ์ดพลิก (ใช้ในหน้าสอน) ---------- */
+.dcards { display: grid; gap: 12px; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); margin: 14px 0; }
+.dcard {
+  background: #fff; border: 3px dashed #9fb0c4; border-radius: 16px;
+  padding: 14px; text-align: center; cursor: pointer; user-select: none;
+}
+.dcard:hover { border-color: var(--theme); background: #f6f9ff; }
+.dcard .f { font-size: 21px; font-weight: 700; }
+.dcard .b { display: none; margin-top: 6px; font-size: 18px; color: var(--ok); font-weight: 700; }
+.dcard.open { border-style: solid; border-color: var(--ok); background: var(--ok-soft); }
+.dcard.open .b { display: block; }
+.dcard .emo { font-size: 34px; line-height: 1.2; }
+
+/* ---------- ตัวแยกเสียง ---------- */
+.sounds { display: flex; gap: 8px; flex-wrap: wrap; margin: 12px 0; }
+.sounds button {
+  background: #fff; border: 3px solid var(--line); border-radius: 999px;
+  padding: 8px 20px; font-family: 'Nunito', sans-serif; font-size: 19px; font-weight: 700; cursor: pointer;
+}
+.sounds button.s1 { background: #ffe8ec; border-color: var(--no); color: #9c1028; }
+.sounds button.s2 { background: #e6f2ff; border-color: #3b5bdb; color: #22378c; }
+.sounds button.s3 { background: #fff3e0; border-color: var(--help); color: #a35c00; }
+.slegend { display: flex; gap: 14px; flex-wrap: wrap; font-size: 17px; margin-top: 6px; }
+.slegend span { border-radius: 999px; padding: 3px 14px; font-weight: 700; }

@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>หน้าสอน — คณิตศาสตร์ Quarter 2</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@400;700&family=Mali:wght@600;700&family=Nunito:wght@700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/style.css">
+<style>
+  .col { background:#fff; border:3px solid var(--line); border-radius:14px; padding:14px 18px; margin:14px 0; }
+  .col table { margin:0; font-size:20px; }
+  .col td { border:none; padding:2px 8px; text-align:right; font-family:'Nunito',sans-serif; font-weight:800; }
+  .col td.u { font-size:15px; color:var(--ink-soft); font-weight:400; }
+  .col tr.line td { border-top:4px solid var(--ink); }
+  .carry { color:var(--no); font-size:16px; }
+  .jump { display:flex; gap:8px; flex-wrap:wrap; margin:14px 0; }
+  .jump a { background:#fff; border:3px solid var(--theme); color:var(--theme); border-radius:999px;
+            padding:6px 18px; text-decoration:none; font-weight:700; font-size:17px; }
+  .demo { background:#f0f5ff; border:3px solid #c2d6f7; border-radius:16px; padding:16px; text-align:center; }
+  .demo .read { font-family:'Mali',sans-serif; font-size:26px; color:var(--theme); margin-top:8px; min-height:38px; }
+  .keywords { display:grid; grid-template-columns:1fr 1fr; gap:14px; }
+  @media(max-width:640px){ .keywords{grid-template-columns:1fr} }
+  .kw { border-radius:14px; padding:14px 16px; border:3px solid; }
+  .kw.mul { background:#eef3ff; border-color:#b9cdf5; }
+  .kw.div { background:#fff2e8; border-color:#f7cba6; }
+  .kw b { font-size:20px; }
+</style>
+</head>
+<body class="math">
+
+<header class="topbar">
+  <div class="wrap">
+    <a class="back" href="../index.html">🏠 หน้าแรก</a>
+    <h1>📖 หน้าสอน — คณิตศาสตร์</h1>
+    <a class="back" href="practice.html">✏️ ไปทำแบบฝึกหัด</a>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <div class="hero">
+    <div class="emoji">🧮</div>
+    <h1>Mathematics I.E. 3</h1>
+    <p>ทบทวนครบทุกเรื่องที่ออกในข้อสอบ Quarter 2</p>
+  </div>
+
+  <div class="jump">
+    <a href="#mul">① การคูณ</a>
+    <a href="#div">② การหาร</a>
+    <a href="#lines">③ เส้น</a>
+    <a href="#time">④ เวลา</a>
+    <a href="#word">⑤ โจทย์ปัญหา</a>
+  </div>
+
+  <div class="card key">
+    <span class="label">ข้อสอบออกอะไรบ้าง</span>
+    <div class="scroll"><table>
+      <tr><th>เรื่อง</th><th>ออกกี่ข้อ</th><th>ข้อที่</th></tr>
+      <tr><td><b>การคูณ</b></td><td>3</td><td>A1 · A2 · A4</td></tr>
+      <tr><td><b>การหาร</b></td><td>1</td><td>A3</td></tr>
+      <tr><td><b>เส้น</b> (ตั้งฉาก ขนาน นอน ตั้ง)</td><td>5</td><td>A5 · A6 · A7 · B3 · B4</td></tr>
+      <tr><td><b>เวลา</b></td><td>6</td><td>A8 · A9 · A10 · A11 · A14 · B1 · B2</td></tr>
+      <tr><td><b>โจทย์ปัญหา</b></td><td>4</td><td>A12 · A13 · B5 · B6</td></tr>
+    </table></div>
+    <p style="margin:8px 0 0"><b>เรื่อง “เวลา” กับ “เส้น” ออกเยอะที่สุด</b> รวมกัน 11 ข้อจาก 20 ข้อ — ต้องแน่นสองเรื่องนี้</p>
+  </div>
+
+  <!-- ==================== 1. การคูณ ==================== -->
+  <h2 id="mul"><span class="num">1</span>การคูณ (Multiplication)</h2>
+
+  <div class="card">
+    <h3>คูณคืออะไร</h3>
+    <p>การคูณ คือ การ<b>บวกจำนวนเดิมซ้ำ ๆ</b> หลาย ๆ ชุด</p>
+    <p style="font-size:22px;text-align:center">
+      3 กลุ่ม กลุ่มละ 4 &nbsp;=&nbsp; 4 + 4 + 4 &nbsp;=&nbsp; <b>3 × 4 = 12</b></p>
+    <p class="th">ผลลัพธ์ของการคูณเรียกว่า <b>product</b> (ผลคูณ) — คำนี้ออกสอบในข้อ A2</p>
+  </div>
+
+  <div class="card">
+    <h3>วิธีตั้งคูณ — เลข 3 หลัก × 1 หลัก</h3>
+    <p>หลักสำคัญ: <b>คูณจากขวาไปซ้าย</b> และ<b>เขียนตัวทดไว้เหนือหลักถัดไปเสมอ</b></p>
+
+    <div class="col">
+      <p style="margin:0 0 6px"><b>ตัวอย่าง 205 × 4</b> <span class="th">(ข้อ A2 ในข้อสอบ)</span></p>
+      <table>
+        <tr><td class="carry"></td><td class="carry">2</td><td class="carry"></td><td class="u"></td></tr>
+        <tr><td>2</td><td>0</td><td>5</td><td class="u"></td></tr>
+        <tr><td>×</td><td></td><td>4</td><td class="u"></td></tr>
+        <tr class="line"><td>8</td><td>2</td><td>0</td><td class="u"></td></tr>
+      </table>
+      <ol style="margin-top:10px">
+        <li>4 × <b>5</b> = 20 → เขียน <b>0</b> ทด <b style="color:var(--no)">2</b></li>
+        <li>4 × <b>0</b> = 0 บวกตัวทด 2 → เขียน <b>2</b></li>
+        <li>4 × <b>2</b> = <b>8</b></li>
+        <li>อ่านจากซ้าย → <b>820</b></li>
+      </ol>
+    </div>
+
+    <div class="card warn" style="margin:12px 0 0">
+      <span class="label">⚠️ จุดที่พลาดบ่อยที่สุด</span>
+      <p style="margin:6px 0"><b>ลืมบวกตัวทด</b> — คูณหลักถัดไปเสร็จแล้ว ต้อง<b>บวกตัวทดทุกครั้ง</b><br>
+        ถ้าลืม 205 × 4 จะได้ 800 แทนที่จะเป็น 820</p>
+    </div>
+  </div>
+
+  <div class="card tip">
+    <span class="label">💡 เทคนิคคูณเลขสองหลักในหัว</span>
+    <p style="margin:6px 0"><b>แยกเป็นสิบกับหน่วย</b> แล้วค่อยรวม</p>
+    <p style="margin:6px 0;font-size:21px">12 × 6 = (<b>10</b> × 6) + (<b>2</b> × 6) = 60 + 12 = <b>72</b></p>
+    <p style="margin:6px 0;font-size:21px">14 × 3 = (10 × 3) + (4 × 3) = 30 + 12 = <b>42</b></p>
+  </div>
+
+  <!-- ==================== 2. การหาร ==================== -->
+  <h2 id="div"><span class="num">2</span>การหาร (Division)</h2>
+
+  <div class="card">
+    <h3>คำศัพท์ที่ต้องรู้</h3>
+    <div class="scroll"><table>
+      <tr><th>คำ</th><th>แปลว่า</th><th>อยู่ตรงไหน</th></tr>
+      <tr><td><b>quotient</b></td><td>ผลหาร</td><td>คำตอบที่ได้</td></tr>
+      <tr><td><b>remainder</b> (R.)</td><td>เศษ</td><td>ตัวที่เหลือ หารต่อไม่ได้</td></tr>
+      <tr><td><b>divide</b></td><td>หาร</td><td>—</td></tr>
+    </table></div>
+  </div>
+
+  <div class="card">
+    <h3>วิธีตั้งหาร — หารจาก<u>ซ้ายไปขวา</u></h3>
+    <p class="th">สังเกตว่า<b>ตรงข้ามกับการคูณ</b> ที่ทำจากขวาไปซ้าย</p>
+
+    <div class="col">
+      <p style="margin:0 0 6px"><b>ตัวอย่าง 368 ÷ 3</b> <span class="th">(ข้อ A3 ในข้อสอบ)</span></p>
+      <ol>
+        <li>หลัก<b>ร้อย</b>: 3 ÷ 3 = <b>1</b> พอดี → เขียน 1</li>
+        <li>หลัก<b>สิบ</b>: 6 ÷ 3 = <b>2</b> พอดี → เขียน 2</li>
+        <li>หลัก<b>หน่วย</b>: 8 ÷ 3 = <b>2</b> เหลือ <b>2</b> (เพราะ 3 × 2 = 6 และ 8 − 6 = 2)</li>
+        <li>ตอบ <b>122 R.2</b></li>
+      </ol>
+    </div>
+
+    <div class="card good" style="margin:12px 0 0">
+      <span class="label">✅ วิธีเช็กคำตอบให้ชัวร์ 100%</span>
+      <p style="margin:6px 0;font-size:21px">(ผลหาร × ตัวหาร) + เศษ = <b>ตัวตั้ง</b></p>
+      <p style="margin:6px 0">(122 × 3) + 2 = 366 + 2 = <b>368</b> ✓ ตรงกับโจทย์ แปลว่าถูกแน่นอน</p>
+      <p style="margin:6px 0" class="th">ข้อสอบมีเวลาเหลือเมื่อไหร่ ให้เช็กแบบนี้ทุกข้อ</p>
+    </div>
+
+    <div class="card warn" style="margin:12px 0 0">
+      <span class="label">⚠️ กฎเหล็กของเศษ</span>
+      <p style="margin:6px 0"><b>เศษต้องน้อยกว่าตัวหารเสมอ</b><br>
+        หารด้วย 3 → เศษได้แค่ 0, 1, 2 เท่านั้น · ถ้าตอบ “เศษ 3” แปลว่ายังหารต่อได้อีก</p>
+    </div>
+  </div>
+
+  <!-- ==================== 3. เส้น ==================== -->
+  <h2 id="lines"><span class="num">3</span>เส้น — นอน ตั้ง ตั้งฉาก ขนาน</h2>
+
+  <div class="card">
+    <h3>แนวของเส้น มี 3 แบบ</h3>
+    <div class="figrow">
+      <div class="figcard"><span id="fA"></span><div class="cap"><b>Horizontal</b><br>แนวนอน · ซ้าย–ขวา<br>เหมือนเส้นขอบฟ้า</div></div>
+      <div class="figcard"><span id="fB"></span><div class="cap"><b>Vertical</b><br>แนวตั้ง · บน–ล่าง<br>เหมือนเสาไฟ</div></div>
+      <div class="figcard"><span id="fC"></span><div class="cap"><b>Slanted</b><br>แนวเอียง<br>ไม่นอนไม่ตั้ง</div></div>
+    </div>
+    <div class="card tip" style="margin:12px 0 0">
+      <span class="label">💡 จำง่าย</span>
+      <p style="margin:6px 0"><b>Horizon</b> = ขอบฟ้า → <b>Horizontal</b> ก็นอนราบเหมือนขอบฟ้า<br>
+        <b>Vertical</b> ขึ้นต้นด้วย <b>V</b> ที่ปลายแหลมชี้ลง → นึกถึงแนวบน–ล่าง</p>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>ตั้งฉาก (Perpendicular) ⊥</h3>
+    <p><b>เส้น 2 เส้นที่ตัดกันเป็นมุมฉาก (90°)</b> — เหมือนมุมของกระดาษ</p>
+    <div class="figrow">
+      <div class="figcard"><span id="gB"></span><div class="cap">✅ ตั้งฉาก<br><span class="th">มีมุมฉาก 🟩</span></div></div>
+      <div class="figcard"><span id="gD"></span><div class="cap">❌ ไม่ตั้งฉาก<br><span class="th">ตัดกันแต่มุมไม่ฉาก</span></div></div>
+    </div>
+    <div class="card warn" style="margin:12px 0 0">
+      <span class="label">⚠️ ต้องครบ 2 อย่าง</span>
+      <p style="margin:6px 0">1) ต้อง<b>ตัดกัน</b> &nbsp;และ&nbsp; 2) มุมตรงจุดตัดต้องเป็น<b>มุมฉาก</b><br>
+        ขาดข้อใดข้อหนึ่งก็ไม่ใช่เส้นตั้งฉาก</p>
+      <p style="margin:6px 0"><b>ทางลัดทำข้อสอบ:</b> มองหา<b>คู่ “นอน + ตั้ง”</b> เจอเมื่อไหร่คือตั้งฉากแน่นอน</p>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>ขนาน (Parallel) ∥</h3>
+    <p><b>เส้น 2 เส้นที่ไม่มีวันตัดกัน</b> ห่างเท่ากันตลอด ต่อให้ยืดยาวแค่ไหนก็ไม่เจอกัน</p>
+    <div class="figrow">
+      <div class="figcard"><span id="gC"></span><div class="cap">✅ ขนาน</div></div>
+      <div class="figcard"><span id="gA"></span><div class="cap">❌ ไม่ขนาน<br><span class="th">ยืดต่อแล้วจะเจอกัน</span></div></div>
+    </div>
+    <p class="th">เส้นเอียงก็ขนานกันได้ ไม่จำเป็นต้องนอนหรือตั้งเสมอไป</p>
+  </div>
+
+  <div class="card demo">
+    <h3 style="margin-top:0">🏠 ลองนับเส้นในบ้าน — กดปุ่มเพื่อไฮไลต์</h3>
+    <div class="btn-row" style="justify-content:center;margin:10px 0">
+      <button class="btn small" data-hm="n">ปกติ</button>
+      <button class="btn small" data-hm="h">🔴 เส้นนอน</button>
+      <button class="btn small" data-hm="v">🔵 เส้นตั้ง</button>
+    </div>
+    <div id="houseBox"></div>
+    <div class="read" id="houseRead">กดปุ่มด้านบนเพื่อดูว่าเส้นไหนเป็นเส้นนอน เส้นไหนเป็นเส้นตั้ง</div>
+  </div>
+
+  <div class="card tip">
+    <span class="label">💡 วิธีนับเส้นไม่ให้ตกหล่น</span>
+    <p style="margin:6px 0"><b>นับเป็นกลุ่ม ไม่นับมั่ว</b> — ไล่ตามลำดับเดิมทุกครั้ง เช่น<br>
+      ปล่องไฟ → หลังคา/ชายคา → ผนัง → หน้าต่าง → ประตู → พื้น</p>
+    <p style="margin:6px 0">แล้ว<b>ใช้นิ้วลากตามเส้น</b> ถ้านิ้วไม่ขึ้นไม่ลงเลย = เส้นนอน · ถ้านิ้วไม่ไปซ้ายไปขวาเลย = เส้นตั้ง</p>
+  </div>
+
+  <!-- ==================== 4. เวลา ==================== -->
+  <h2 id="time"><span class="num">4</span>เวลา (Time)</h2>
+
+  <div class="card">
+    <h3>อ่านนาฬิกา — ดูเข็มยาวก่อนเสมอ</h3>
+    <div class="scroll"><table>
+      <tr><th>เข็มยาวชี้</th><th>= กี่นาที</th><th>พูดว่า</th></tr>
+      <tr><td>12</td><td>00</td><td><b>o'clock</b> (ตรง)</td></tr>
+      <tr><td>3</td><td>15</td><td><b>quarter past</b></td></tr>
+      <tr><td>6</td><td>30</td><td><b>half past</b> (ครึ่ง)</td></tr>
+      <tr><td>9</td><td>45</td><td><b>quarter to</b> (ชั่วโมงถัดไป)</td></tr>
+    </table></div>
+    <div class="card warn" style="margin:12px 0 0">
+      <span class="label">⚠️ กฎทองของเข็มยาว</span>
+      <p style="margin:6px 0;font-size:21px">เอาเลขที่เข็มยาวชี้ <b>× 5</b> เสมอ</p>
+      <p style="margin:6px 0">เข็มยาวชี้ <b>4</b> ไม่ใช่ 4 นาที แต่คือ 4 × 5 = <b>20 นาที</b><br>
+        เข็มยาวชี้ <b>9</b> ไม่ใช่ 9 นาที แต่คือ 9 × 5 = <b>45 นาที</b></p>
+      <p style="margin:6px 0">ถ้าเข็มอยู่<b>ระหว่าง</b>ตัวเลข ให้นับขีดเล็กเพิ่มทีละ <b>1 นาที</b></p>
+    </div>
+    <div class="card tip" style="margin:12px 0 0">
+      <span class="label">⚠️ ตอน half past ระวัง!</span>
+      <p style="margin:6px 0">เข็มสั้นจะอยู่<b>ตรงกลางระหว่างเลข 2 ตัว</b> ให้อ่าน<b>เลขที่น้อยกว่า</b><br>
+        อยู่ระหว่าง 6 กับ 7 → <b>half past 6</b> (ยังไปไม่ถึง 7 ก็ยังเป็น 6 อยู่)</p>
+    </div>
+  </div>
+
+  <div class="card demo">
+    <h3 style="margin-top:0">🕐 ฝึกอ่านนาฬิกา — สุ่มได้ไม่จำกัด</h3>
+    <div id="clockBox"></div>
+    <div class="read" id="clockRead">กดปุ่มเพื่อเริ่ม</div>
+    <div class="btn-row" style="justify-content:center">
+      <button class="btn" id="cNew">🎲 สุ่มเวลาใหม่</button>
+      <button class="btn ghost" id="cShow">👀 เฉลย</button>
+    </div>
+    <p class="th" style="margin:0">ให้น้องอ่านออกเสียงก่อน แล้วค่อยกดเฉลย</p>
+  </div>
+
+  <div class="card">
+    <h3>แปลงนาที ↔ ชั่วโมง</h3>
+    <p><b>ท่องตารางนี้ให้ขึ้นใจ</b> แล้วข้อแปลงเวลาจะง่ายทันที</p>
+    <div class="scroll"><table>
+      <tr><th>ชั่วโมง</th><td>1 h</td><td>2 h</td><td>3 h</td><td>4 h</td><td>5 h</td></tr>
+      <tr><th>นาที</th><td><b>60</b></td><td><b>120</b></td><td><b>180</b></td><td><b>240</b></td><td><b>300</b></td></tr>
+    </table></div>
+    <p><b>นาที → ชั่วโมง</b> ให้หาตัวในตารางที่<b>ไม่เกิน</b>เลขนั้น แล้วลบออก</p>
+    <p style="font-size:21px">265 นาที → 265 <b>− 240</b> = 25 → ตอบ <b>4 h 25 min</b></p>
+    <div class="card warn" style="margin:12px 0 0">
+      <span class="label">⚠️ ห้ามทำ</span>
+      <p style="margin:6px 0"><b>1 h 10 min ≠ 110 นาที</b> — ต้องคูณ 60 ก่อนเสมอ (= 70 นาที)<br>
+        และนาทีที่เหลือต้อง<b>น้อยกว่า 60</b> เสมอ</p>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>หาช่วงเวลา (นานเท่าไร) — เดินทีละก้าว</h3>
+    <p>อย่าลบเวลาตรง ๆ เพราะนาทีมักไม่พอลบ ให้<b>แวะที่นาฬิกาตรงก่อน</b></p>
+    <div class="col">
+      <p style="margin:0 0 6px"><b>10:30 → 11:25 นานเท่าไร</b> <span class="th">(ข้อ A11)</span></p>
+      <p style="margin:4px 0">10:30 ⟶ <b>11:00</b> ใช้ <b>30 นาที</b></p>
+      <p style="margin:4px 0">11:00 ⟶ <b>11:25</b> ใช้ <b>25 นาที</b></p>
+      <p style="margin:4px 0;font-size:21px">รวม 30 + 25 = <b>55 นาที</b></p>
+    </div>
+    <h3>บวกเวลา (จบกี่โมง)</h3>
+    <p>บวก<b>ชั่วโมงก่อน</b> แล้วค่อยบวกนาที</p>
+    <div class="col">
+      <p style="margin:0 0 6px"><b>เริ่ม 9:15 ใช้เวลา 3 h 20 min จบกี่โมง</b> <span class="th">(ข้อ A14)</span></p>
+      <p style="margin:4px 0">9:15 <b>+ 3 ชั่วโมง</b> = 12:15</p>
+      <p style="margin:4px 0">12:15 <b>+ 20 นาที</b> = <b>12:35</b></p>
+      <p style="margin:4px 0">เลยเที่ยงแล้ว → ต้องเป็น <b>p.m.</b></p>
+    </div>
+    <div class="card warn" style="margin:12px 0 0">
+      <span class="label">⚠️ a.m. / p.m.</span>
+      <p style="margin:6px 0"><b>a.m.</b> = เที่ยงคืน–ก่อนเที่ยงวัน (ตอนเช้า) · <b>p.m.</b> = เที่ยงวัน–ก่อนเที่ยงคืน<br>
+        เวลาบวกแล้ว<b>เลยเที่ยง</b> ต้องเปลี่ยนจาก a.m. เป็น <b>p.m.</b> ทันที</p>
+    </div>
+    <h3>บวกเวลาแบบ h กับ min</h3>
+    <div class="col">
+      <table>
+        <tr><td>8</td><td class="u">h</td><td>30</td><td class="u">min</td></tr>
+        <tr><td>+ 1</td><td class="u">h</td><td>10</td><td class="u">min</td></tr>
+        <tr class="line"><td>9</td><td class="u">h</td><td>40</td><td class="u">min</td></tr>
+      </table>
+      <p style="margin:8px 0 0">บวกชั่วโมงกับชั่วโมง · บวกนาทีกับนาที<br>
+        <b>ถ้านาทีเกิน 60 ต้องลบ 60 แล้วทดเป็น 1 ชั่วโมง</b> (เช่น 6 h 85 min = 7 h 25 min)</p>
+    </div>
+  </div>
+
+  <!-- ==================== 5. โจทย์ปัญหา ==================== -->
+  <h2 id="word"><span class="num">5</span>โจทย์ปัญหา — คูณหรือหาร?</h2>
+
+  <div class="card">
+    <p>โจทย์ปัญหาไม่ได้ยากที่การคำนวณ แต่ยากที่<b>เลือกไม่ถูกว่าจะคูณหรือหาร</b><br>
+      ให้จับ<b>คำสำคัญ</b>ในโจทย์</p>
+    <div class="keywords">
+      <div class="kw mul">
+        <b>✖️ คำที่บอกว่าต้อง “คูณ”</b>
+        <ul style="margin:8px 0 0">
+          <li><b>each / every</b> — กล่องละ · คนละ · ทุกเดือน</li>
+          <li><b>in 3 months</b> — จำนวนเท่ากันหลายชุด</li>
+          <li><b>altogether / in total</b> — รวมทั้งหมด</li>
+          <li><b>times as many as</b> — มากเป็นกี่เท่า</li>
+        </ul>
+        <p style="margin:8px 0 0" class="th">เช่น “124 boxes, each box has 7 candies” → 124 × 7</p>
+      </div>
+      <div class="kw div">
+        <b>➗ คำที่บอกว่าต้อง “หาร”</b>
+        <ul style="margin:8px 0 0">
+          <li><b>equally</b> — เท่า ๆ กัน</li>
+          <li><b>share / give to</b> — แบ่งให้</li>
+          <li><b>packed into</b> — แบ่งใส่</li>
+          <li><b>How many bags / groups</b> — ได้กี่ถุง กี่กลุ่ม</li>
+        </ul>
+        <p style="margin:8px 0 0" class="th">เช่น “126 cookies to 6 friends equally” → 126 ÷ 6</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="card warn">
+    <span class="label">⚠️ กับดักที่เจอในข้อสอบจริง</span>
+    <p style="margin:6px 0"><b>ข้อ A12</b> “173 stickers ทุกเดือน · 3 เดือน” — ตัวเลือกมี <b>176</b> ซึ่งคือคนที่
+      <b>บวก</b> 173 + 3 แทนที่จะคูณ</p>
+    <p style="margin:6px 0"><b>ข้อ A13</b> “448 toys แบ่งใส่ถุงละ 4” — ตัวเลือกมี <b>1,792</b> ซึ่งคือคนที่
+      <b>คูณ</b> แทนที่จะหาร</p>
+    <p style="margin:6px 0"><b>ข้อ A4</b> “มีกี่กลุ่ม” ไม่ได้ถาม “มีกี่ลูก” — <b>อ่านคำถามให้จบก่อนตอบ</b></p>
+  </div>
+
+  <div class="card good">
+    <span class="label">🎯 พร้อมแล้ว</span>
+    <p style="margin:6px 0">อ่านครบแล้วไปลองทำข้อสอบจริงทั้ง 20 ข้อกันเลย · ทำผิดไม่เป็นไร เฉลยจะอธิบายให้ทีละขั้น</p>
+    <div class="btn-row" style="margin:12px 0 0">
+      <a class="btn" href="practice.html">✏️ ไปทำแบบฝึกหัด 20 ข้อ</a>
+    </div>
+  </div>
+
+  <p class="foot">สื่อทบทวนข้อสอบจริง ป.3 · Quarter 2</p>
+</main>
+
+<script src="../assets/figures.js"></script>
+<script>
+/* ---- รูปแนวเส้น ---- */
+function lineFig(kind) {
+  var a = { h: [14, 60, 146, 60], v: [80, 12, 80, 108], s: [16, 104, 144, 16] }[kind];
+  var col = { h: '#e0364f', v: '#3b5bdb', s: '#8fa1b6' }[kind];
+  return '<svg viewBox="0 0 160 120" width="160"><line x1="' + a[0] + '" y1="' + a[1] +
+    '" x2="' + a[2] + '" y2="' + a[3] + '" stroke="' + col +
+    '" stroke-width="7" stroke-linecap="round"/></svg>';
+}
+document.getElementById('fA').innerHTML = lineFig('h');
+document.getElementById('fB').innerHTML = lineFig('v');
+document.getElementById('fC').innerHTML = lineFig('s');
+['A', 'B', 'C', 'D'].forEach(function (g) {
+  var e = document.getElementById('g' + g);
+  if (e) e.innerHTML = Fig.group(g);
+});
+
+/* ---- บ้านไฮไลต์เส้น ---- */
+var hBox = document.getElementById('houseBox'), hRead = document.getElementById('houseRead');
+function drawHouse(mode) {
+  if (mode === 'h') {
+    hBox.innerHTML = Fig.houseH(true);
+    hRead.innerHTML = '🔴 <b>เส้นนอน 7 เส้น</b> — ปล่องไฟบน · ชายคา · หน้าต่าง 3 เส้น · ประตูบน · พื้น';
+  } else if (mode === 'v') {
+    hBox.innerHTML = Fig.houseV(true);
+    hRead.innerHTML = '🔵 <b>เส้นตั้ง 9 เส้น</b> — ปล่องไฟ 2 · ผนัง 2 · หน้าต่าง 3 · ประตู 2';
+  } else {
+    hBox.innerHTML = Fig.houseH(false);
+    hRead.innerHTML = 'กดปุ่มด้านบนเพื่อดูว่าเส้นไหนเป็นเส้นนอน เส้นไหนเป็นเส้นตั้ง';
+  }
+}
+document.querySelectorAll('[data-hm]').forEach(function (b) {
+  b.addEventListener('click', function () { drawHouse(b.dataset.hm); });
+});
+drawHouse('n');
+
+/* ---- ฝึกอ่านนาฬิกา ---- */
+var W1 = ['', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'ten', 'eleven', 'twelve'];
+var cur = [3, 15];
+function pad(n) { return n < 10 ? '0' + n : n; }
+function say(h, m) {
+  if (m === 0) return W1[h] + " o'clock";
+  if (m === 15) return 'quarter past ' + h;
+  if (m === 30) return 'half past ' + h;
+  if (m === 45) return 'quarter to ' + (h % 12 + 1);
+  return m + ' minutes past ' + h;
+}
+function newClock() {
+  var h = 1 + Math.floor(Math.random() * 12);
+  var picks = [0, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55];
+  var m = picks[Math.floor(Math.random() * picks.length)];
+  cur = [h, m];
+  document.getElementById('clockBox').innerHTML = Fig.clock(h, m, 200);
+  document.getElementById('clockRead').textContent = 'อ่านออกเสียงดูสิ แล้วค่อยกดเฉลย';
+}
+document.getElementById('cNew').addEventListener('click', newClock);
+document.getElementById('cShow').addEventListener('click', function () {
+  document.getElementById('clockRead').innerHTML =
+    '<b>' + cur[0] + ':' + pad(cur[1]) + '</b> &nbsp;·&nbsp; ' + say(cur[0], cur[1]);
+});
+newClock();
+</script>
+</body>
+</html>

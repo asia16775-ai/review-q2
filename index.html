@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>ทบทวนข้อสอบจริง ป.3 — Quarter 2</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@400;700&family=Mali:wght@600;700&family=Nunito:wght@700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+<style>
+  .namebox { display:flex; gap:12px; align-items:center; flex-wrap:wrap; }
+  .namebox input {
+    font-family:inherit; font-size:21px; font-weight:700; padding:11px 16px;
+    border:3px solid var(--line); border-radius:14px; flex:1 1 240px; min-width:180px;
+  }
+  .namebox input:focus { outline:none; border-color:var(--theme); }
+  .hi { font-family:'Mali',sans-serif; font-size:24px; color:var(--theme); }
+  .legend { display:flex; gap:10px; flex-wrap:wrap; margin-top:10px; }
+  .legend span { border-radius:999px; padding:4px 16px; font-weight:700; font-size:17px; }
+</style>
+</head>
+<body class="home">
+
+<header class="topbar">
+  <div class="wrap">
+    <h1>📚 ทบทวนข้อสอบจริง ป.3 · Quarter 2</h1>
+    <a class="back" href="teacher.html">👩‍🏫 สำหรับครู</a>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <div class="hero">
+    <div class="emoji">🎯</div>
+    <h1>มาทบทวนข้อสอบกันเถอะ!</h1>
+    <p>ทุกข้อในนี้คือ<b>ข้อสอบจริง</b>ที่เคยทำมาแล้ว · มีหน้าสอนก่อน แล้วค่อยลองทำเอง</p>
+  </div>
+
+  <div class="card key">
+    <span class="label">ใส่ชื่อก่อนเริ่มนะ</span>
+    <div class="namebox">
+      <input type="text" id="nm" placeholder="พิมพ์ชื่อเล่นของหนู" autocomplete="off">
+      <button class="btn" id="save">บันทึกชื่อ</button>
+    </div>
+    <p class="hi" id="greet" style="margin:10px 0 0"></p>
+    <p class="th" style="margin:4px 0 0">ใส่ชื่อแล้วครูจะรู้ว่าใครทำข้อไหนถึงไหน · เครื่องจำชื่อไว้ให้ ไม่ต้องพิมพ์ใหม่ทุกครั้ง</p>
+  </div>
+
+  <div class="subjects">
+
+    <div class="subj m">
+      <span class="emo">🧮</span>
+      <div class="t">คณิตศาสตร์</div>
+      <div class="d">Mathematics I.E. 3 — Revision Test<br>
+        คูณ · หาร · เส้นตั้งฉาก/ขนาน · นาฬิกา · แปลงเวลา · โจทย์ปัญหา</div>
+      <div class="pills">
+        <a class="pill go" href="math/learn.html" style="text-decoration:none">📖 หน้าสอน</a>
+        <a class="pill" href="math/practice.html" style="text-decoration:none">✏️ แบบฝึกหัด 20 ข้อ</a>
+      </div>
+    </div>
+
+    <div class="subj s">
+      <span class="emo">🌱</span>
+      <div class="t">วิทยาศาสตร์</div>
+      <div class="d">Science IE — 2nd Quarter Revision<br>
+        สิ่งแวดล้อม · ความสะอาด · ส่วนของบ้าน · ของในห้องเรียน</div>
+      <div class="pills">
+        <a class="pill go" href="science/learn.html" style="text-decoration:none">📖 หน้าสอน</a>
+        <a class="pill" href="science/practice.html" style="text-decoration:none">✏️ แบบฝึกหัด 25 คะแนน</a>
+      </div>
+    </div>
+
+    <div class="subj e">
+      <span class="emo">🔤</span>
+      <div class="t">ภาษาอังกฤษ</div>
+      <div class="d">English Review Worksheet — Quarter 2<br>
+        Prepositions · บอกทาง · อ่านแผนที่ · Present Simple · เสียง /s/</div>
+      <div class="pills">
+        <a class="pill go" href="english/learn.html" style="text-decoration:none">📖 หน้าสอน</a>
+        <a class="pill" href="english/practice.html" style="text-decoration:none">✏️ แบบฝึกหัด 24 ข้อ</a>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="card tip">
+    <span class="label">วิธีใช้ให้ได้ผลที่สุด</span>
+    <ol style="margin:8px 0 0">
+      <li><b>อ่านหน้าสอนก่อน</b> — ครูเปิดหน้าสอนแล้วแชร์จอสอนไปทีละหัวข้อ</li>
+      <li><b>แล้วให้น้องเปิดหน้าแบบฝึกหัดเอง</b> ทำทีละข้อ ตอบแล้วเฉลยขึ้นทันทีพร้อมวิธีคิด</li>
+      <li>ข้อไหนงง กดปุ่ม <b>🙋 ติดข้อนี้ ขอครูอธิบาย</b> — ครูจะเห็นทันทีบนหน้าจอ</li>
+      <li>ทำครบแล้วกด <b>📋 คัดลอกรหัสผล</b> ส่งให้ครูทางแชท</li>
+    </ol>
+  </div>
+
+  <div class="card">
+    <h2 style="margin-top:0">🚦 แถบสถานะ — ครูดูได้ตลอดเวลา</h2>
+    <p>ด้านบนของหน้าแบบฝึกหัดจะมี<b>แถบเลขข้อ</b> สีบอกสถานะทุกข้อ ตอนน้องแชร์จอ
+      ครูเห็นภาพรวมได้ใน 1 วินาที</p>
+    <div class="legend">
+      <span style="background:#e9edf3;color:#62748a">⬜ ยังไม่ทำ</span>
+      <span style="background:#d6f7e5;color:#0b6b3c">🟩 ตอบถูก</span>
+      <span style="background:#ffe0e5;color:#9c1028">🟥 ตอบผิด</span>
+      <span style="background:#ffeccd;color:#a35c00">🟧 ขอครูช่วย</span>
+    </div>
+    <p style="margin-top:12px">และมี<b>นาฬิกาจับเวลา</b>อยู่มุมขวา — กด <b>⏱ ตั้งเวลา</b>
+      เพื่อนับถอยหลัง (เช่น 20 นาที) หรือใส่ 0 เพื่อแค่จับเวลาที่ใช้เฉย ๆ</p>
+    <p>ระบบยัง<b>จับเวลาทีละข้อ</b>ด้วย พอทำเสร็จจะบอกว่า<b>ข้อไหนใช้เวลานานผิดปกติ</b>
+      ซึ่งคือจุดที่น้องลังเล <span class="th">— ข้อแบบนี้ควรทบทวนซ้ำ แม้จะตอบถูกก็ตาม</span></p>
+  </div>
+
+  <div class="card key">
+    <h2 style="margin-top:0">👧👦 เรียนพร้อมกัน 2 คนทำยังไง</h2>
+    <p>ให้น้องแต่ละคน<b>เปิดเว็บในเครื่องของตัวเอง</b>แล้ว<b>ใส่ชื่อของตัวเอง</b> —
+      คะแนนกับเวลาจะแยกกันคนละเครื่อง ไม่ปนกัน</p>
+    <p>ทำเสร็จแล้วแต่ละคนกด <b>คัดลอกรหัสผล</b> ส่งมาให้ครู
+      ครูเอาไปวางในหน้า <a href="teacher.html"><b>👩‍🏫 สำหรับครู</b></a>
+      จะเห็นรายงานเต็มว่า<b>ผิดข้อไหน ใช้เวลาเท่าไร ขอความช่วยเหลือข้อไหน</b></p>
+    <div class="btn-row" style="margin:12px 0 0">
+      <a class="btn" href="teacher.html">👩‍🏫 เปิดหน้าสำหรับครู</a>
+    </div>
+  </div>
+
+  <p class="foot">สื่อทบทวนข้อสอบจริง ป.3 · Quarter 2 · ทำขึ้นเพื่อการเรียนการสอน</p>
+</main>
+
+<script>
+var inp = document.getElementById('nm'), g = document.getElementById('greet');
+function load() {
+  var v = '';
+  try { v = localStorage.getItem('rq2_name') || ''; } catch (e) {}
+  if (v) { inp.value = v; g.textContent = 'สวัสดี ' + v + ' 👋 พร้อมเริ่มแล้ว!'; }
+}
+document.getElementById('save').addEventListener('click', function () {
+  var v = inp.value.trim();
+  if (!v) { alert('พิมพ์ชื่อก่อนนะ'); inp.focus(); return; }
+  try { localStorage.setItem('rq2_name', v); } catch (e) {}
+  g.textContent = 'สวัสดี ' + v + ' 👋 พร้อมเริ่มแล้ว!';
+});
+inp.addEventListener('keydown', function (e) {
+  if (e.key === 'Enter') document.getElementById('save').click();
+});
+load();
+</script>
+</body>
+</html>

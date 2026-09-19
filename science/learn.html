@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>หน้าสอน — วิทยาศาสตร์ Quarter 2</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@400;700&family=Mali:wght@600;700&family=Nunito:wght@700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/style.css">
+<style>
+  .jump { display:flex; gap:8px; flex-wrap:wrap; margin:14px 0; }
+  .jump a { background:#fff; border:3px solid var(--theme); color:var(--theme); border-radius:999px;
+            padding:6px 18px; text-decoration:none; font-weight:700; font-size:17px; }
+  .rooms { display:grid; gap:14px; grid-template-columns:repeat(auto-fit,minmax(210px,1fr)); }
+  .room { background:#fff; border:3px solid var(--line); border-radius:16px; padding:14px; text-align:center; }
+  .room .e { font-size:40px; line-height:1.2; }
+  .room .n { font-family:'Nunito',sans-serif; font-size:21px; font-weight:800; color:var(--theme); }
+  .room .t { font-size:17px; color:var(--ink-soft); }
+  .check { display:grid; gap:8px; grid-template-columns:repeat(auto-fit,minmax(190px,1fr)); }
+  .check label { background:#fff; border:3px solid var(--line); border-radius:12px; padding:9px 14px;
+                 cursor:pointer; display:flex; gap:10px; align-items:center; font-size:18px; }
+  .check input { width:20px; height:20px; }
+  .check label.on { background:var(--ok-soft); border-color:var(--ok); }
+</style>
+</head>
+<body class="sci">
+
+<header class="topbar">
+  <div class="wrap">
+    <a class="back" href="../index.html">🏠 หน้าแรก</a>
+    <h1>📖 หน้าสอน — วิทยาศาสตร์</h1>
+    <a class="back" href="practice.html">✏️ ไปทำแบบฝึกหัด</a>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <div class="hero">
+    <div class="emoji">🌱</div>
+    <h1>Science IE — 2nd Quarter</h1>
+    <p>สิ่งแวดล้อม · ความสะอาด · บ้าน · ห้องเรียน</p>
+  </div>
+
+  <div class="jump">
+    <a href="#clean">① สิ่งแวดล้อม &amp; ความสะอาด</a>
+    <a href="#house">② ส่วนต่าง ๆ ของบ้าน</a>
+    <a href="#classroom">③ ของในห้องเรียน</a>
+    <a href="#trick">④ เทคนิคทำข้อสอบ</a>
+  </div>
+
+  <div class="card key">
+    <span class="label">ข้อสอบออกอะไรบ้าง</span>
+    <div class="scroll"><table>
+      <tr><th>เรื่อง</th><th>คะแนน</th><th>ข้อที่</th></tr>
+      <tr><td><b>สิ่งแวดล้อมและความสะอาด</b></td><td>11</td><td>1–7 · 9–12</td></tr>
+      <tr><td><b>ส่วนต่าง ๆ ของบ้าน</b></td><td>8</td><td>13 · 14 · <b>15–20</b></td></tr>
+      <tr><td><b>ของในห้องเรียน</b></td><td>6</td><td>8 · <b>21–25</b></td></tr>
+    </table></div>
+    <p style="margin:8px 0 0"><b>ข้อ 15–25 เป็นข้อเขียนตอบ รวม 11 คะแนน</b> —
+      เกือบครึ่งของข้อสอบ! เป็นข้อที่ได้คะแนนง่ายที่สุดถ้าจำคำศัพท์ได้</p>
+  </div>
+
+  <!-- ============ 1 ============ -->
+  <h2 id="clean"><span class="num">1</span>สิ่งแวดล้อม &amp; ความสะอาด</h2>
+
+  <div class="card">
+    <h3>คำกริยาทำความสะอาด — แตะการ์ดเพื่อดูคำแปล</h3>
+    <div class="dcards" id="verbs"></div>
+  </div>
+
+  <div class="card">
+    <h3>อุปกรณ์ทำความสะอาด</h3>
+    <div class="rooms">
+      <div class="room"><div class="e">🧹</div><div class="n">broom</div><div class="t">ไม้กวาด — ใช้ <b>sweep</b></div></div>
+      <div class="room"><div class="e">🧽</div><div class="n">mop</div><div class="t">ไม้ถูพื้น — ใช้ <b>mop</b></div></div>
+      <div class="room"><div class="e">🗑️</div><div class="n">trash bin</div><div class="t">ถังขยะ (= rubbish bin)</div></div>
+      <div class="room"><div class="e">🧴</div><div class="n">soap</div><div class="t">สบู่</div></div>
+    </div>
+    <div class="card warn" style="margin:12px 0 0">
+      <span class="label">⚠️ คำที่เขียนคล้ายกันมาก</span>
+      <p style="margin:6px 0"><b>Broom</b> (ไม้กวาด) ≠ <b>Room</b> (ห้อง) — ต่างกันแค่ตัว <b>B</b><br>
+        <b>Pan</b> (กระทะ) ≠ <b>Pen</b> (ปากกา) — ต่างกันแค่สระ</p>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>กฎการทิ้งขยะ</h3>
+    <div class="grid2">
+      <div class="card good" style="margin:0">
+        <span class="label">✅ ควรทำ</span>
+        <ul style="margin:8px 0 0">
+          <li>ทิ้งขยะ <b>in the trash bin</b></li>
+          <li>ถังเต็ม → <b>find another bin</b> (หาถังใบอื่น)</li>
+          <li><b>Sweep the floor</b> กวาดพื้น</li>
+          <li><b>Put books away</b> เก็บหนังสือเข้าที่</li>
+          <li><b>Plant trees</b> ปลูกต้นไม้</li>
+        </ul>
+      </div>
+      <div class="card warn" style="margin:0">
+        <span class="label">❌ ไม่ควรทำ</span>
+        <ul style="margin:8px 0 0">
+          <li>ทิ้งขยะ on the ground / in the ocean</li>
+          <li>โยนขยะออกหน้าต่าง</li>
+          <li>เขียนบนกำแพง (write on the wall)</li>
+          <li>ทิ้งจานสกปรกไว้ในห้อง</li>
+          <li><b>Cut down trees</b> ตัดต้นไม้</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="card tip">
+    <span class="label">⭐ แนวคิดที่ออกสอบถึง 2 ข้อ (ข้อ 7 และ 9)</span>
+    <p style="margin:6px 0;font-size:21px">
+      <b>ของที่ทุกคนใช้ ทุกคนต้องช่วยกันดูแล</b></p>
+    <p style="margin:6px 0">โรงเรียนเป็นของทุกคน → <b>Everyone in school</b> ต้องช่วยกัน<br>
+      บ้านเป็นของทุกคน → <b>Everyone uses the home, so everyone should help care for it.</b></p>
+  </div>
+
+  <!-- ============ 2 ============ -->
+  <h2 id="house"><span class="num">2</span>ส่วนต่าง ๆ ของบ้าน (Parts of a House)</h2>
+
+  <div class="card">
+    <p>ข้อ <b>15–20</b> ให้เขียนชื่อห้องมา <b>6 ห้อง</b> — คิดเป็น <b>6 คะแนนเต็ม ๆ</b> ต้องเก็บให้ครบ</p>
+    <div class="rooms">
+      <div class="room"><div class="e">🛋️</div><div class="n">living room</div><div class="t">ห้องนั่งเล่น<br>ดูทีวี นั่งคุยกัน</div></div>
+      <div class="room"><div class="e">🛏️</div><div class="n">bedroom</div><div class="t">ห้องนอน</div></div>
+      <div class="room"><div class="e">🛁</div><div class="n">bathroom</div><div class="t">ห้องน้ำ<br>อาบน้ำ เข้าห้องน้ำ</div></div>
+      <div class="room"><div class="e">🍳</div><div class="n">kitchen</div><div class="t">ห้องครัว<br>ทำอาหาร</div></div>
+      <div class="room"><div class="e">🍽️</div><div class="n">dining room</div><div class="t">ห้องอาหาร<br>นั่งกินข้าว</div></div>
+      <div class="room"><div class="e">🚗</div><div class="n">garage</div><div class="t">โรงรถ<br>จอดรถ</div></div>
+    </div>
+  </div>
+
+  <div class="card tip">
+    <span class="label">⭐ เทคนิคจำ 6 ห้อง ไม่มีวันลืม</span>
+    <p style="margin:6px 0">นึกเป็น<b>กิจวัตรประจำวัน</b> ตั้งแต่ตื่นจนออกจากบ้าน —</p>
+    <p style="margin:6px 0;font-size:20px">
+      🛏️ ตื่นที่ <b>bedroom</b> → 🛁 อาบน้ำที่ <b>bathroom</b> → 🍳 ทำอาหารที่ <b>kitchen</b> →
+      🍽️ กินข้าวที่ <b>dining room</b> → 🛋️ ดูทีวีที่ <b>living room</b> → 🚗 เอารถที่ <b>garage</b></p>
+    <p style="margin:6px 0" class="th">เดินตามลำดับนี้ในหัวทีเดียว ได้ครบ 6 ห้องพอดี</p>
+  </div>
+
+  <div class="card">
+    <h3>✅ ลองเช็กดูว่าจำได้กี่ห้อง</h3>
+    <p class="th">ติ๊กห้องที่นึกออกเอง ถ้าครบ 6 = พร้อมสอบข้อ 15–20</p>
+    <div class="check" id="chk"></div>
+    <p id="chkRead" style="font-weight:700;margin-top:10px">ติ๊กไปเลย 👆</p>
+  </div>
+
+  <div class="card">
+    <h3>ชื่อห้องบอกหน้าที่ของตัวเอง</h3>
+    <p style="font-size:20px">
+      <b>bath</b> (อาบน้ำ) + room = <b>bathroom</b><br>
+      <b>bed</b> (เตียง) + room = <b>bedroom</b><br>
+      <b>living</b> (การใช้ชีวิต) + room = <b>living room</b><br>
+      <b>dining</b> (การกินอาหาร) + room = <b>dining room</b></p>
+    <div class="card warn" style="margin:12px 0 0">
+      <span class="label">⚠️ ระวังคำปลอม</span>
+      <p style="margin:6px 0">ข้อสอบชอบสร้างคำที่<b>ฟังดูเหมือนจริงแต่ไม่มีอยู่จริง</b> เช่น
+        <s>chair room</s> · <s>mop room</s> · <s>table room</s><br>
+        ให้ยึดเฉพาะห้องที่<b>เคยได้ยินจริง ๆ</b> เท่านั้น</p>
+    </div>
+  </div>
+
+  <!-- ============ 3 ============ -->
+  <h2 id="classroom"><span class="num">3</span>ของในห้องเรียน (Things in the Classroom)</h2>
+
+  <div class="card">
+    <p>ข้อ <b>21–25</b> ให้เขียนมา <b>5 อย่าง</b> = <b>5 คะแนน</b></p>
+    <div class="rooms">
+      <div class="room"><div class="e">📋</div><div class="n">whiteboard</div><div class="t">กระดาน</div></div>
+      <div class="room"><div class="e">🪑</div><div class="n">desk / chair</div><div class="t">โต๊ะเรียน / เก้าอี้</div></div>
+      <div class="room"><div class="e">📚</div><div class="n">book</div><div class="t">หนังสือ</div></div>
+      <div class="room"><div class="e">✏️</div><div class="n">pencil / pen</div><div class="t">ดินสอ / ปากกา</div></div>
+      <div class="room"><div class="e">📏</div><div class="n">ruler</div><div class="t">ไม้บรรทัด</div></div>
+      <div class="room"><div class="e">🕐</div><div class="n">clock</div><div class="t">นาฬิกา</div></div>
+      <div class="room"><div class="e">🎒</div><div class="n">bag</div><div class="t">กระเป๋า</div></div>
+      <div class="room"><div class="e">🪟</div><div class="n">window / door</div><div class="t">หน้าต่าง / ประตู</div></div>
+    </div>
+  </div>
+
+  <div class="card tip">
+    <span class="label">⭐ เทคนิคทำข้อ 21–25 ให้ได้เต็ม</span>
+    <p style="margin:6px 0"><b>1. กวาดสายตาในหัว</b> จากหน้าห้อง → โต๊ะเรา → รอบห้อง</p>
+    <p style="margin:6px 0"><b>2. เลือกคำสั้น ๆ ที่สะกดไม่ผิด</b> — <b>pen · book · desk · chair · bag</b>
+      ปลอดภัยกว่าเสี่ยงเขียน whiteboard แล้วสะกดผิด</p>
+    <p style="margin:6px 0"><b>3. ห้ามเขียนของที่ไม่ได้อยู่ในห้องเรียน</b> เช่น bus · car · train
+      (ข้อ 8 ในข้อสอบเอาคำพวกนี้มาหลอก)</p>
+  </div>
+
+  <!-- ============ 4 ============ -->
+  <h2 id="trick"><span class="num">4</span>เทคนิคทำข้อสอบให้ได้คะแนนเพิ่ม</h2>
+
+  <div class="card">
+    <h3>1️⃣ เจอคำว่า <span class="en">Only</span> ให้สงสัยไว้ก่อน</h3>
+    <p>ข้อสอบเรื่อง<b>ความรับผิดชอบ</b> ตัวเลือกที่ขึ้นต้นด้วย <b>Only</b> (เฉพาะ...เท่านั้น) มักผิด
+      เพราะจำกัดคนแค่กลุ่มเดียว — คำตอบมักเป็น <b>Everyone</b></p>
+  </div>
+
+  <div class="card">
+    <h3>2️⃣ เจอคำว่า <span class="en">don’t / not</span> ให้หาตัวเลือกที่เป็น<u>ผลเสีย</u></h3>
+    <p>เช่น “What can happen if we <b>don’t</b> clean?” → คำตอบต้องเป็นเรื่องไม่ดี
+      (<b>People can get sick</b>) ไม่ใช่เรื่องดีอย่างสวยงามหรือแข็งแรง</p>
+  </div>
+
+  <div class="card">
+    <h3>3️⃣ ตัวเลือกที่มีของ 2 อย่าง ต้องถูก<u>ทั้งคู่</u></h3>
+    <p>ข้อ 8 “things inside the classroom” ทุกตัวเลือกมีของในห้องเรียน 1 อย่างเสมอ
+      แต่มีอีกอย่างที่ไม่ใช่ (bus / car / train)<br>
+      <b>อ่านให้ครบทั้งคู่ก่อนตอบ</b></p>
+  </div>
+
+  <div class="card good">
+    <span class="label">🎯 พร้อมแล้ว</span>
+    <p style="margin:6px 0">ไปลองทำข้อสอบจริงทั้ง 25 คะแนนกันเลย</p>
+    <div class="btn-row" style="margin:12px 0 0">
+      <a class="btn" href="practice.html">✏️ ไปทำแบบฝึกหัด</a>
+    </div>
+  </div>
+
+  <p class="foot">สื่อทบทวนข้อสอบจริง ป.3 · Quarter 2</p>
+</main>
+
+<script>
+/* ---- การ์ดคำกริยา ---- */
+var VERBS = [
+  ['🧹', 'sweep', 'กวาด'], ['🧽', 'mop', 'ถูพื้น'], ['🫧', 'wash', 'ล้าง'],
+  ['🧼', 'wipe', 'เช็ด'], ['🌬️', 'dust', 'ปัดฝุ่น'], ['🌳', 'plant', 'ปลูก (ต้นไม้)'],
+  ['🪓', 'cut down', 'ตัดทิ้ง'], ['🗑️', 'throw away', 'ทิ้ง'],
+  ['📦', 'put away', 'เก็บเข้าที่'], ['🧍', 'leave', 'ทิ้งไว้ / ปล่อยไว้']
+];
+document.getElementById('verbs').innerHTML = VERBS.map(function (v) {
+  return '<div class="dcard"><div class="emo">' + v[0] + '</div>' +
+    '<div class="f">' + v[1] + '</div><div class="b">' + v[2] + '</div></div>';
+}).join('');
+document.querySelectorAll('.dcard').forEach(function (c) {
+  c.addEventListener('click', function () { c.classList.toggle('open'); });
+});
+
+/* ---- เช็กลิสต์ 6 ห้อง ---- */
+var ROOMS = ['living room', 'bedroom', 'bathroom', 'kitchen', 'dining room', 'garage'];
+var box = document.getElementById('chk');
+box.innerHTML = ROOMS.map(function (r, i) {
+  return '<label><input type="checkbox" data-i="' + i + '"><span>' + r + '</span></label>';
+}).join('');
+box.addEventListener('change', function () {
+  var n = 0;
+  box.querySelectorAll('label').forEach(function (l) {
+    var on = l.querySelector('input').checked;
+    l.classList.toggle('on', on);
+    if (on) n++;
+  });
+  var r = document.getElementById('chkRead');
+  r.textContent = n >= 6 ? '🎉 ครบ 6 ห้องแล้ว! ข้อ 15–20 เก็บ 6 คะแนนได้เต็มแน่นอน'
+    : 'ติ๊กแล้ว ' + n + ' ห้อง — ยังขาดอีก ' + (6 - n) + ' ห้อง';
+  r.style.color = n >= 6 ? 'var(--ok)' : '';
+});
+</script>
+</body>
+</html>

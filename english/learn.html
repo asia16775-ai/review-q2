@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>หน้าสอน — ภาษาอังกฤษ Quarter 2</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@400;700&family=Mali:wght@600;700&family=Nunito:wght@700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/style.css">
+<style>
+  .jump { display:flex; gap:8px; flex-wrap:wrap; margin:14px 0; }
+  .jump a { background:#fff; border:3px solid var(--theme); color:var(--theme); border-radius:999px;
+            padding:6px 18px; text-decoration:none; font-weight:700; font-size:17px; }
+  .preps { display:grid; gap:12px; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); }
+  .prep { background:#fff; border:3px solid var(--line); border-radius:16px; padding:12px; text-align:center; }
+  .prep .w { font-family:'Nunito',sans-serif; font-size:24px; font-weight:800; color:var(--theme); }
+  .prep .t { font-size:17px; color:var(--ink-soft); }
+  .vs2 { display:grid; gap:14px; grid-template-columns:1fr 1fr; }
+  @media(max-width:640px){ .vs2{grid-template-columns:1fr} }
+  .demo { background:#fff0f5; border:3px solid #f7c5d8; border-radius:16px; padding:16px; }
+  .demo .read { font-family:'Mali',sans-serif; font-size:22px; color:var(--theme); min-height:34px; margin-top:8px; }
+</style>
+</head>
+<body class="eng">
+
+<header class="topbar">
+  <div class="wrap">
+    <a class="back" href="../index.html">🏠 หน้าแรก</a>
+    <h1>📖 หน้าสอน — ภาษาอังกฤษ</h1>
+    <a class="back" href="practice.html">✏️ ไปทำแบบฝึกหัด</a>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <div class="hero">
+    <div class="emoji">🔤</div>
+    <h1>English Review — Quarter 2</h1>
+    <p>Prepositions · บอกทาง · แผนที่ · Present Simple · เสียงท้ายคำ</p>
+  </div>
+
+  <div class="jump">
+    <a href="#prep">① Prepositions</a>
+    <a href="#map">② บอกทาง &amp; แผนที่</a>
+    <a href="#gram">③ Present Simple</a>
+    <a href="#sound">④ เสียงท้ายคำ</a>
+  </div>
+
+  <div class="card key">
+    <span class="label">ข้อสอบออกอะไรบ้าง</span>
+    <div class="scroll"><table>
+      <tr><th>เรื่อง</th><th>กี่ข้อ</th><th>ข้อที่</th></tr>
+      <tr><td><b>Prepositions</b> (คำบอกตำแหน่ง)</td><td>10</td><td>A1–A10</td></tr>
+      <tr><td><b>บอกทาง &amp; อ่านแผนที่</b></td><td>9</td><td>Q1–Q5 · B6 · B7 · B8 · B9</td></tr>
+      <tr><td><b>ไวยากรณ์ &amp; เสียง</b></td><td>5</td><td>B1–B5</td></tr>
+    </table></div>
+    <p style="margin:8px 0 0"><b>Prepositions กับการบอกทาง รวมกัน 19 จาก 24 ข้อ</b> — เน้นสองเรื่องนี้ก่อนเลย</p>
+  </div>
+
+  <!-- ============ 1 ============ -->
+  <h2 id="prep"><span class="num">1</span>Prepositions — คำบอกตำแหน่ง</h2>
+
+  <div class="card">
+    <div class="preps" id="prepBox"></div>
+  </div>
+
+  <div class="card">
+    <h3>📍 ดูจากรูปจริงในข้อสอบ</h3>
+    <div style="text-align:center" id="room"></div>
+    <div class="scroll"><table>
+      <tr><th>ประโยค</th><th>คำตอบ</th><th>เพราะ</th></tr>
+      <tr><td>The ball is ___ the box.</td><td><b>in</b></td><td>อยู่ข้างในกล่อง</td></tr>
+      <tr><td>The box is ___ the table.</td><td><b>under</b></td><td>อยู่ใต้โต๊ะ</td></tr>
+      <tr><td>The apple is ___ the teddy bear <u>and</u> the book.</td><td><b>between</b></td><td>อยู่ตรงกลางระหว่าง 2 สิ่ง</td></tr>
+      <tr><td>The dog is ___ the bed.</td><td><b>on</b></td><td>อยู่บนเตียง แตะกันอยู่</td></tr>
+      <tr><td>The fan is ___ the table.</td><td><b>above</b></td><td>อยู่เหนือโต๊ะ แต่<b>ไม่แตะ</b></td></tr>
+      <tr><td>The teddy bear is ___ the table.</td><td><b>on</b></td><td>นั่งอยู่บนโต๊ะ แตะกัน</td></tr>
+      <tr><td>The bed is ___ the table.</td><td><b>next to</b></td><td>อยู่ข้าง ๆ ระดับเดียวกัน</td></tr>
+    </table></div>
+  </div>
+
+  <div class="card warn">
+    <span class="label">⚠️ 3 คู่ที่สับสนกันมากที่สุด</span>
+    <div class="vs2" style="margin-top:10px">
+      <div class="card" style="margin:0"><h3 style="margin-top:0">on vs above</h3>
+        <p style="margin:4px 0"><b>on</b> = อยู่บนและ<b>แตะกัน</b><br><span class="th">หนังสืออยู่ on โต๊ะ</span></p>
+        <p style="margin:4px 0"><b>above</b> = อยู่บนแต่<b>ไม่แตะ</b><br><span class="th">พัดลมอยู่ above โต๊ะ</span></p>
+      </div>
+      <div class="card" style="margin:0"><h3 style="margin-top:0">next to vs opposite</h3>
+        <p style="margin:4px 0"><b>next to</b> = ติดกัน <b>ไม่มีถนนคั่น</b></p>
+        <p style="margin:4px 0"><b>opposite</b> = ตรงข้าม <b>มีถนนคั่น</b></p>
+        <p style="margin:4px 0" class="th">ดูรูปว่ามีเส้นถนนไหม = ตัดสินได้เลย</p>
+      </div>
+    </div>
+    <div class="card good" style="margin:12px 0 0">
+      <span class="label">⭐ สูตรลัดที่ใช้ได้เกือบ 100%</span>
+      <p style="margin:6px 0;font-size:21px">เห็นโครงสร้าง “___ A <b>and</b> B” → ตอบ <b>between</b> ได้เลย</p>
+      <p style="margin:6px 0" class="th">เพราะ between ต้องมีของ 2 อย่างเสมอ — ในข้อสอบใช้ได้ทั้งข้อ A3 และ A9</p>
+    </div>
+  </div>
+
+  <!-- ============ 2 ============ -->
+  <h2 id="map"><span class="num">2</span>บอกทาง &amp; อ่านแผนที่</h2>
+
+  <div class="card">
+    <h3>คำบอกทางที่ต้องจำ</h3>
+    <div class="preps">
+      <div class="prep"><div class="w">Go straight on</div><div class="t">เดินตรงไป<br><span class="th">ใช้กับ<b>ถนน</b></span></div></div>
+      <div class="prep"><div class="w">Turn left</div><div class="t">เลี้ยวซ้าย</div></div>
+      <div class="prep"><div class="w">Turn right</div><div class="t">เลี้ยวขวา</div></div>
+      <div class="prep"><div class="w">Go past</div><div class="t">เดินผ่าน<br><span class="th">ใช้กับ<b>สถานที่</b></span></div></div>
+    </div>
+    <div class="card tip" style="margin:12px 0 0">
+      <span class="label">💡 Go past กับ Go straight on ต่างกันยังไง</span>
+      <p style="margin:6px 0"><b>Go past + สถานที่</b> — go past <u>the pharmacy</u> (มีของให้ผ่าน)<br>
+        <b>Go straight on + ถนน</b> — go straight on <u>Green Road</u> (แค่บอกให้เดินตรง)</p>
+      <p style="margin:6px 0">ดูว่า<b>หลังช่องว่างเป็นชื่อร้านหรือชื่อถนน</b> ก็ตอบได้เลย</p>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>🗺️ ลองเดินตามแผนที่</h3>
+    <div style="text-align:center" id="map1"></div>
+    <p>เริ่มจากจุด <b>S</b> เดินไปไปรษณีย์ (⭐) ตามเส้นประสีแดง</p>
+    <ol style="font-size:20px">
+      <li><b>Go straight on</b> on Green Road — เดินตรงไปตามถนน Green Road</li>
+      <li><b>Turn right</b> on Brown Road — พอถึง Brown Road เลี้ยวขวา (หักลงล่าง)</li>
+      <li><b>Go past</b> the hotel — เดินผ่านโรงแรม</li>
+      <li><b>Turn right</b> on Blue Road — เลี้ยวขวาอีกครั้ง</li>
+      <li>The post office is <b>next to the hospital</b> — ไปรษณีย์อยู่ข้างโรงพยาบาล</li>
+    </ol>
+    <div class="card warn" style="margin:12px 0 0">
+      <span class="label">⚠️ ซ้าย–ขวา งงมาก ทำยังไง</span>
+      <p style="margin:6px 0"><b>ต้องหมุนตัวเองตามทิศที่กำลังเดิน</b> อย่าดูจากมุมมองคนอ่านแผนที่</p>
+      <p style="margin:6px 0"><b>วิธีง่ายสุด:</b> เอานิ้วจิ้มบนจอแล้ว<b>เดินนิ้วตามเส้นจริง ๆ</b>
+        พอถึงจุดเลี้ยวให้ถามว่า “ถ้าฉันเดินมาทางนี้ ฉันต้องหันไปทางมือไหน”</p>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>📖 อ่านแผนที่ — บอกว่าอะไรอยู่ตรงไหน</h3>
+    <div style="text-align:center" id="map2"></div>
+    <div class="scroll"><table>
+      <tr><th>พูดว่า</th><th>แปล</th><th>ตัวอย่างจากแผนที่</th></tr>
+      <tr><td><b>next to</b></td><td>อยู่ติดกัน</td><td>The bookstore is next to the supermarket.</td></tr>
+      <tr><td><b>opposite</b></td><td>อยู่ตรงข้าม (คนละฝั่งถนน)</td><td>The bank is opposite the flower shop.</td></tr>
+      <tr><td><b>between</b> A and B</td><td>อยู่ระหว่าง</td><td>The toy store is between the music store and the restaurant.</td></tr>
+      <tr><td><b>on the corner of</b> A and B</td><td>อยู่หัวมุมถนน</td><td>The flower shop is on the corner of Green Street and Red Avenue.</td></tr>
+    </table></div>
+    <div class="card good" style="margin:12px 0 0">
+      <span class="label">⭐ เทคนิคดูคำใบ้จากคำข้างเคียง</span>
+      <p style="margin:6px 0">หลังช่องว่างมีคำว่า <b>of</b> → ต้องเป็น <b>on the corner of</b><br>
+        หลังช่องว่างมีคำว่า <b>and</b> → ต้องเป็น <b>between</b></p>
+    </div>
+    <div class="card warn" style="margin:12px 0 0">
+      <span class="label">⚠️ ข้อ NOT-True พลาดกันมากที่สุด</span>
+      <p style="margin:6px 0">โจทย์ถามว่าข้อไหน<b>ไม่จริง</b> แต่เด็กมักอ่านเป็น “ข้อไหนจริง”</p>
+      <p style="margin:6px 0"><b>วิธีไม่พลาด:</b> เอาดินสอ<b>ติ๊กถูกข้อที่จริง</b>ไปทีละข้อ
+        ข้อที่<b>ไม่มีติ๊ก</b>คือคำตอบ</p>
+    </div>
+  </div>
+
+  <!-- ============ 3 ============ -->
+  <h2 id="gram"><span class="num">3</span>Present Simple — เติม s / es</h2>
+
+  <div class="card">
+    <h3>กฎข้อเดียวที่ต้องจำ</h3>
+    <div class="vs2">
+      <div class="card key" style="margin:0">
+        <span class="label">เติม s / es</span>
+        <p style="margin:6px 0;font-size:21px"><b>He · She · It</b><br>(คน/สิ่งของ <b>คนเดียว</b>)</p>
+        <p style="margin:6px 0">He <b>watches</b> TV.<br>She <b>goes</b> to school.<br>Simon <b>does</b> homework.</p>
+      </div>
+      <div class="card good" style="margin:0">
+        <span class="label">ไม่เติมอะไร</span>
+        <p style="margin:6px 0;font-size:21px"><b>I · You · We · They</b><br>(<b>หลายคน</b> หรือ I / You)</p>
+        <p style="margin:6px 0">They <b>do</b> homework.<br>We <b>watch</b> TV.<br>I <b>go</b> to school.</p>
+      </div>
+    </div>
+    <div class="card tip" style="margin:12px 0 0">
+      <span class="label">💡 เติม -s หรือ -es?</span>
+      <p style="margin:6px 0">กริยาลงท้ายด้วย <b>ch · sh · s · x · o</b> → เติม <b>-es</b><br>
+        wat<b>ch</b> → watch<b>es</b> · wa<b>sh</b> → wash<b>es</b> · g<b>o</b> → go<b>es</b> · bru<b>sh</b> → brush<b>es</b></p>
+      <p style="margin:6px 0">นอกนั้นเติม <b>-s</b> เฉย ๆ → play<b>s</b> · take<b>s</b> · read<b>s</b></p>
+    </div>
+    <div class="card warn" style="margin:12px 0 0">
+      <span class="label">⭐ เทคนิคกลับด้าน (ข้อ B4)</span>
+      <p style="margin:6px 0">บางข้อเขากลับกัน — ให้กริยามา แล้วให้เลือก<b>ประธาน</b></p>
+      <p style="margin:6px 0">เห็น <b>do</b> (ไม่มี s) → หาประธาน<b>หลายคน</b> = <b>They</b><br>
+        เห็น <b>does</b> (มี s) → หาประธาน<b>คนเดียว</b> = Simon / Ann / My sister</p>
+    </div>
+  </div>
+
+  <!-- ============ 4 ============ -->
+  <h2 id="sound"><span class="num">4</span>เสียงท้ายคำ /s/ /z/ /ɪz/</h2>
+
+  <div class="card">
+    <p>เวลาเติม <b>-s / -es</b> ท้ายคำ เสียงที่ออกมามี <b>3 แบบ</b> ไม่เหมือนกัน — ข้อ B5 ถามเรื่องนี้</p>
+    <div class="scroll"><table>
+      <tr><th>เสียง</th><th>เมื่อไหร่</th><th>ตัวอย่าง</th></tr>
+      <tr><td><b style="color:var(--no)">/s/</b></td>
+          <td>ท้ายคำเป็น <b>p · t · k · f</b><br><span class="th">(เสียงเบา คอไม่สั่น)</span></td>
+          <td><b>takes</b> · stops · hits · laughs</td></tr>
+      <tr><td><b style="color:#3b5bdb">/z/</b></td>
+          <td>ท้ายคำเป็น<b>สระ</b> หรือเสียงที่<b>คอสั่น</b></td>
+          <td><b>plays</b> · reads · goes · runs</td></tr>
+      <tr><td><b style="color:var(--help)">/ɪz/</b></td>
+          <td>ท้ายคำเป็น <b>s · z · ch · sh · x · ge</b><br><span class="th">(เพิ่มมา 1 พยางค์)</span></td>
+          <td><b>dances</b> · brushes · watches</td></tr>
+    </table></div>
+    <div class="card tip" style="margin:12px 0 0">
+      <span class="label">⭐ วิธีเช็กด้วยตัวเอง</span>
+      <p style="margin:6px 0"><b>เอามือแตะคอแล้วออกเสียงท้ายคำ</b><br>
+        คอ<b>ไม่สั่น</b> → /s/ &nbsp;·&nbsp; คอ<b>สั่น</b> → /z/ &nbsp;·&nbsp;
+        ต้อง<b>เพิ่มพยางค์</b>ถึงจะออกเสียงได้ → /ɪz/</p>
+    </div>
+  </div>
+
+  <div class="card demo">
+    <h3 style="margin-top:0">🔊 ลองแยกเสียงดู — แตะคำเพื่อดูเฉลย</h3>
+    <div class="sounds" id="sbox"></div>
+    <div class="slegend">
+      <span style="background:#ffe8ec;color:#9c1028">/s/ คอไม่สั่น</span>
+      <span style="background:#e6f2ff;color:#22378c">/z/ คอสั่น</span>
+      <span style="background:#fff3e0;color:#a35c00">/ɪz/ เพิ่มพยางค์</span>
+    </div>
+    <div class="read" id="sread">แตะคำด้านบนได้เลย</div>
+  </div>
+
+  <div class="card">
+    <h3>คำศัพท์สถานที่ที่ออกสอบ</h3>
+    <div class="preps">
+      <div class="prep"><div class="w">library</div><div class="t">ห้องสมุด<br><span class="th">ต้องเงียบ</span></div></div>
+      <div class="prep"><div class="w">pharmacy</div><div class="t">ร้านขายยา</div></div>
+      <div class="prep"><div class="w">barbershop</div><div class="t">ร้านตัดผม</div></div>
+      <div class="prep"><div class="w">salon</div><div class="t">ร้านทำผม</div></div>
+      <div class="prep"><div class="w">museum</div><div class="t">พิพิธภัณฑ์</div></div>
+      <div class="prep"><div class="w">bookstore</div><div class="t">ร้านหนังสือ</div></div>
+      <div class="prep"><div class="w">department store</div><div class="t">ห้างสรรพสินค้า</div></div>
+      <div class="prep"><div class="w">sports centre</div><div class="t">ศูนย์กีฬา</div></div>
+    </div>
+  </div>
+
+  <div class="card good">
+    <span class="label">🎯 พร้อมแล้ว</span>
+    <p style="margin:6px 0">ไปลองทำข้อสอบจริงทั้ง 24 ข้อกันเลย</p>
+    <div class="btn-row" style="margin:12px 0 0">
+      <a class="btn" href="practice.html">✏️ ไปทำแบบฝึกหัด</a>
+    </div>
+  </div>
+
+  <p class="foot">สื่อทบทวนข้อสอบจริง ป.3 · Quarter 2</p>
+</main>
+
+<script src="../assets/figures.js"></script>
+<script>
+var PREPS = [
+  ['in', 'อยู่ข้างใน', '📦'], ['on', 'อยู่บน (แตะกัน)', '📚'],
+  ['under', 'อยู่ใต้', '🪑'], ['above', 'อยู่เหนือ (ไม่แตะ)', '💡'],
+  ['between', 'อยู่ระหว่าง 2 สิ่ง', '🔤'], ['next to', 'อยู่ข้าง ๆ ติดกัน', '🏠'],
+  ['opposite', 'อยู่ตรงข้าม (คนละฝั่งถนน)', '↔️'], ['behind', 'อยู่ข้างหลัง', '🙈'],
+  ['in front of', 'อยู่ข้างหน้า', '🚶'], ['on the corner of', 'อยู่หัวมุมถนน', '📐']
+];
+document.getElementById('prepBox').innerHTML = PREPS.map(function (p) {
+  return '<div class="prep"><div style="font-size:30px">' + p[2] + '</div>' +
+    '<div class="w">' + p[0] + '</div><div class="t">' + p[1] + '</div></div>';
+}).join('');
+
+document.getElementById('room').innerHTML = Fig.roomScene();
+document.getElementById('map1').innerHTML = Fig.mapPost();
+document.getElementById('map2').innerHTML = Fig.mapStreet();
+
+/* ---- ตัวแยกเสียง ---- */
+var SND = [
+  ['takes', 1], ['plays', 2], ['dances', 3], ['brushes', 3], ['watches', 3],
+  ['stops', 1], ['reads', 2], ['goes', 2], ['hits', 1], ['washes', 3],
+  ['runs', 2], ['laughs', 1]
+];
+var TXT = {
+  1: ['/s/', 'ท้ายคำเสียงเบา คอไม่สั่น → ออกเสียง <b>ส</b>'],
+  2: ['/z/', 'ท้ายคำเป็นสระหรือเสียงที่คอสั่น → ออกเสียง <b>ซ</b>'],
+  3: ['/ɪz/', 'ท้ายคำเป็น s z ch sh x → ต้องเพิ่มพยางค์ <b>อิซ</b>']
+};
+document.getElementById('sbox').innerHTML = SND.map(function (s, i) {
+  return '<button data-i="' + i + '">' + s[0] + '</button>';
+}).join('');
+document.querySelectorAll('#sbox button').forEach(function (b) {
+  b.addEventListener('click', function () {
+    var s = SND[+b.dataset.i];
+    b.className = 's' + s[1];
+    document.getElementById('sread').innerHTML =
+      '<b>' + s[0] + '</b> → เสียง <b>' + TXT[s[1]][0] + '</b> — ' + TXT[s[1]][1];
+  });
+});
+</script>
+</body>
+</html>
