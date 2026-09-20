@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>แบบฝึกหัด — วิทยาศาสตร์ ป.3 แรงกับการเคลื่อนที่และแม่เหล็ก</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@400;700&family=Mali:wght@600;700&family=Nunito:wght@700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body class="vit">
+
+<header class="topbar">
+  <div class="wrap">
+    <a class="back" href="../index.html">🏠 หน้าแรก</a>
+    <h1>✏️ แบบฝึกหัด — วิทยาศาสตร์ (ไทย)</h1>
+    <a class="back" href="learn.html">📖 กลับไปหน้าสอน</a>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <div class="hero" style="padding:22px 0 4px">
+    <div class="emoji">🧲</div>
+    <h1>หน่วยที่ 3 — แรงกับการเคลื่อนที่และแม่เหล็ก</h1>
+    <p>ข้อสอบจริง <b>ตอนที่ 1 ปรนัย 20 ข้อ</b> + <b>ตอนที่ 2 เติมคำตอบ 8 คะแนน</b> · รวม 28 คะแนน</p>
+  </div>
+
+  <div class="card tip">
+    <span class="label">วิธีใช้</span>
+    <p style="margin:6px 0">แตะเลือกคำตอบหรือพิมพ์คำตอบ แล้วเฉลยจะขึ้นมาเองพร้อม<b>วิธีคิดทีละขั้น</b></p>
+    <p style="margin:6px 0">ข้อไหนงง กดปุ่ม <b>🙋 ติดข้อนี้ ขอครูอธิบาย</b> ได้เลย ครูจะเห็นทันที</p>
+    <p style="margin:6px 0">แถบเลขข้อข้างบนกดได้ — <b>เขียว = ถูก · แดง = ผิด · ส้ม = ขอครูช่วย</b></p>
+    <p style="margin:6px 0">⚠️ มี <b>2 ข้อที่ถามหาข้อที่ผิด</b> (ข้อ 7 กับ ข้อ 20) อ่านโจทย์ให้จบก่อนตอบนะ</p>
+  </div>
+
+  <div class="helpbox" id="helpbox"></div>
+
+  <div id="quiz"></div>
+
+  <div class="card result" id="result"></div>
+
+  <div class="btn-row">
+    <a class="btn ghost" href="learn.html">📖 หน้าสอน</a>
+    <a class="btn ghost" href="../index.html">🏠 หน้าแรก</a>
+  </div>
+
+  <p class="foot">สื่อทบทวนข้อสอบจริง ป.3 · Quarter 2</p>
+</main>
+
+<script src="../assets/qr.js"></script>
+<script src="../assets/figures.js"></script>
+<script src="../assets/data-sci-th.js"></script>
+<script src="../assets/engine.js"></script>
+<script>Quiz.init(DATA_SCI_TH);</script>
+</body>
+</html>

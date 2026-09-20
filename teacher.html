@@ -93,11 +93,13 @@
           <li>คณิต: <b>นาฬิกาสุ่มเวลา</b> (ให้น้องผลัดกันอ่าน) · <b>บ้านไฮไลต์เส้นนอน/เส้นตั้ง</b></li>
           <li>วิทย์: <b>การ์ดคำศัพท์พลิกได้</b> · <b>เช็กลิสต์ 6 ห้อง</b></li>
           <li>อังกฤษ: <b>ตัวแยกเสียง /s/ /z/ /ɪz/</b> · <b>แผนที่เดินตามเส้น</b></li>
+          <li>วิทย์ไทย: <b>เครื่องลองแม่เหล็ก</b> กดพลิกขั้วแล้วดูว่าดูดหรือผลัก ·
+            <b>เกมแยกแรงสัมผัส/ไม่สัมผัส</b> · <b>การ์ดพลิกสารแม่เหล็ก</b></li>
         </ul>
       </li>
       <li>สอนจบแล้วให้น้อง<b>เปิดหน้าแบบฝึกหัดในเครื่องตัวเอง</b> แล้วแชร์จอกลับมาให้ครูดู</li>
       <li>ครูดูแถบเลขข้อ เห็นแดงหรือส้มตรงไหนก็เข้าไปอธิบาย</li>
-      <li>ทำครบแล้วให้กด <b>คัดลอกรหัสผล</b> ส่งมา ครูเอามาวางข้างบนดูรายงานเต็ม</li>
+      <li>ทำครบแล้ว <b>QR จะขึ้นเอง</b> — ครูส่องด้วยกล้องมือถือ รายงานเต็มเปิดขึ้นทันที</li>
     </ol>
     <p><b>ถ้าน้อง 2 คนทำไม่เท่ากัน</b> — คนที่เสร็จก่อนให้กด
       <b>🔁 ทำเฉพาะข้อที่ผิดอีกรอบ</b> ในหน้าสรุปผล จะได้มีอะไรทำระหว่างรออีกคน</p>
@@ -110,8 +112,13 @@
       ถ้าน้องตอบ 3:45 ให้ชมว่าคิดมีเหตุผล แล้วสอนว่า<b>เข็มสั้นคือชั่วโมงเสมอ</b></p>
     <p><b>อังกฤษ Q1–Q5 (บอกทาง)</b> — คำบอกทางเขียนได้หลายแบบ ในเว็บเลือกคำที่ตรงกับเส้นทางในแผนที่ที่สุด
       ถ้าน้องตอบต่างออกไปแต่มีเหตุผล ให้ชวนคุยว่า<b>ถ้ายืนตรงนั้นจริง ๆ จะหันไปทางไหน</b></p>
-    <p><b>วิทย์ 15–25 (เขียนรายการ)</b> — เว็บรับคำตอบภาษาไทยด้วยเพื่อไม่ให้น้องท้อ
+    <p><b>วิทย์ (อังกฤษ) 15–25 (เขียนรายการ)</b> — เว็บรับคำตอบภาษาไทยด้วยเพื่อไม่ให้น้องท้อ
       แต่<b>ตอนสอบจริงต้องเขียนภาษาอังกฤษ</b> ย้ำกับน้องด้วย</p>
+    <p><b>วิทย์ไทย ข้อ 16 (แม่เหล็ก 4 ช่อง A B C D)</b> — ข้อนี้ตอบด้วยการ<b>ตัดตัวเลือกที่เป็นไปไม่ได้</b>
+      ไม่ได้ฟันธงจากรูปตรง ๆ เพราะ A จะเป็นขั้วเหนือหรือใต้ก็ได้ทั้งคู่
+      แต่มีแค่ข้อ ค. ข้อเดียวที่<b>ไม่ขัดกับกฎ</b> ถ้าน้องงง ให้สอนวิธี "สมมติแล้วไล่ดู" ตามขั้นตอนในเว็บ</p>
+    <p><b>วิทย์ไทย ตอนที่ 2</b> — ในกระดาษข้อสอบจริงต้อง<b>เขียนมือ</b> (เติมขั้ว N/S ลงในรูป)
+      เว็บทำเป็นแบบเลือกตอบเพื่อให้ตรวจอัตโนมัติได้ จึงควรให้น้อง<b>ปริ้นใบงาน Word</b> มาเขียนด้วย</p>
   </div>
 
   <p class="foot">สื่อทบทวนข้อสอบจริง ป.3 · Quarter 2</p>
@@ -121,9 +128,11 @@
 <script src="assets/data-math.js"></script>
 <script src="assets/data-science.js"></script>
 <script src="assets/data-english.js"></script>
+<script src="assets/data-sci-th.js"></script>
 <script>
-var SETS = { math: DATA_MATH, sci: DATA_SCIENCE, eng: DATA_ENGLISH };
-var NAMES = { math: 'คณิตศาสตร์', sci: 'วิทยาศาสตร์', eng: 'ภาษาอังกฤษ' };
+var SETS = { math: DATA_MATH, sci: DATA_SCIENCE, eng: DATA_ENGLISH, vit: DATA_SCI_TH };
+var NAMES = { math: 'คณิตศาสตร์', sci: 'วิทยาศาสตร์ (อังกฤษ)',
+              eng: 'ภาษาอังกฤษ', vit: 'วิทยาศาสตร์ (ไทย)' };
 var KEY = 'กขคง';
 
 function strip(h) { return String(h).replace(/<[^>]*>/g, '').replace(/\s+/g, ' ').trim(); }
@@ -157,31 +166,39 @@ function answerOf(it) {
 })();
 
 /* ---------------- ถอดรหัสผล ---------------- */
-var SUBJ_CH = { m: 'math', s: 'sci', e: 'eng' };
+var SUBJ_CH = { m: 'math', s: 'sci', e: 'eng', v: 'vit' };
 
 /* รหัสแบบใหม่ (สั้น อยู่หลัง # ในลิงก์ QR):
    2 + วิชา(1) + เวลารวม base36(3) + [คะแนน(1) + วินาที base36(2)] ต่อข้อ + '~' + ชื่อ(base64url) */
 function decodeV2(code) {
-  var m = code.match(/^2([mse])([0-9a-z]{3})((?:[0-9A-J][0-9a-z]{2})+)(?:~([A-Za-z0-9\-_]*))?$/);
+  var m = code.match(/^([23])([msev])([0-9a-z]{3})((?:[0-9A-J][0-9a-z]{2})+)(?:~([A-Za-z0-9\-_]*))?$/);
   if (!m) return null;
-  var name = '';
-  if (m[4]) {
+  var ver = m[1], name = '';
+  if (m[5]) {
     try {
-      var b = m[4].replace(/-/g, '+').replace(/_/g, '/');
+      var b = m[5].replace(/-/g, '+').replace(/_/g, '/');
       while (b.length % 4) b += '=';
-      name = decodeURIComponent(escape(atob(b)));
+      var raw = atob(b);
+      if (ver === '2') {
+        name = decodeURIComponent(escape(raw));          /* รูปแบบเดิม (UTF-8) */
+      } else {
+        for (var q = 0; q < raw.length; q++) {           /* รูปแบบบีบ 1 ไบต์/ตัวอักษร */
+          var cc = raw.charCodeAt(q);
+          name += String.fromCharCode(cc < 0x80 ? cc : 0x0E00 + (cc - 0x80));
+        }
+      }
     } catch (e) { name = ''; }
   }
   var rows = [];
-  for (var i = 0; i < m[3].length; i += 3) {
-    var g = m[3].charAt(i), help = /[A-J]/.test(g);
+  for (var i = 0; i < m[4].length; i += 3) {
+    var g = m[4].charAt(i), help = /[A-J]/.test(g);
     rows.push({
       got: help ? g.charCodeAt(0) - 65 : parseInt(g, 10),
       help: help,
-      sec: parseInt(m[3].substr(i + 1, 2), 36) || 0
+      sec: parseInt(m[4].substr(i + 1, 2), 36) || 0
     });
   }
-  return { subject: SUBJ_CH[m[1]], name: name || '-', total: parseInt(m[2], 36) || 0, rows: rows };
+  return { subject: SUBJ_CH[m[2]], name: name || '-', total: parseInt(m[3], 36) || 0, rows: rows };
 }
 
 function decode(code) {

@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>หน้าสอน — วิทยาศาสตร์ ป.3 แรงกับการเคลื่อนที่และแม่เหล็ก</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@400;700&family=Mali:wght@600;700&family=Nunito:wght@700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/style.css">
+<style>
+  .rule { display:flex; gap:14px; align-items:center; flex-wrap:wrap; margin:10px 0; }
+  .rule .tag {
+    font-family:'Mali',sans-serif; font-size:21px; font-weight:700;
+    border-radius:999px; padding:6px 18px; white-space:nowrap;
+  }
+  .tag.pull { background:#d6f7e5; color:#0b6b3c; }
+  .tag.push { background:#ffe0e5; color:#9c1028; }
+  .playrow { display:flex; gap:12px; flex-wrap:wrap; align-items:center; margin:12px 0; }
+  .magbox { text-align:center; }
+  .flipwrap { display:flex; gap:14px; flex-wrap:wrap; margin-top:10px; }
+  .flip {
+    flex:1 1 210px; min-height:112px; cursor:pointer; border:3px solid var(--line);
+    border-radius:16px; background:#fff; padding:14px; text-align:center;
+    display:flex; align-items:center; justify-content:center; font-size:20px; font-weight:700;
+  }
+  .flip:hover { border-color:var(--theme); }
+  .flip.on { background:var(--theme); color:#fff; border-color:var(--theme); }
+  .sortgame { display:grid; gap:10px; margin:10px 0; }
+  .srow {
+    display:flex; gap:10px; align-items:center; flex-wrap:wrap;
+    border:3px solid var(--line); border-radius:14px; padding:9px 13px; background:#fff;
+  }
+  .srow .wd { flex:1 1 190px; font-size:19px; font-weight:700; }
+  .srow button {
+    font-family:inherit; font-size:17px; font-weight:700; padding:7px 15px;
+    border:3px solid var(--line); border-radius:999px; background:#fff; cursor:pointer;
+  }
+  .srow button:hover:not(:disabled) { border-color:var(--theme); }
+  .srow button.pick-ok { background:#d6f7e5; border-color:#17a05e; color:#0b6b3c; }
+  .srow button.pick-no { background:#ffe0e5; border-color:var(--no); color:#9c1028; }
+  .srow button:disabled { cursor:default; opacity:.55; }
+  .srow button.pick-ok:disabled, .srow button.pick-no:disabled { opacity:1; }
+  .srow .msg { flex:1 1 100%; font-size:17px; color:var(--ink-soft); }
+  .scoreline { font-family:'Mali',sans-serif; font-size:21px; color:var(--theme); margin:6px 0 0; }
+</style>
+</head>
+<body class="vit">
+
+<header class="topbar">
+  <div class="wrap">
+    <a class="back" href="../index.html">🏠 หน้าแรก</a>
+    <h1>📖 หน้าสอน — วิทยาศาสตร์ (ไทย)</h1>
+    <a class="back" href="practice.html">✏️ ไปทำแบบฝึกหัด</a>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <div class="hero" style="padding:22px 0 4px">
+    <div class="emoji">🧲</div>
+    <h1>หน่วยที่ 3 — แรงกับการเคลื่อนที่และแม่เหล็ก</h1>
+    <p>ตัวชี้วัด ว 2.2 ป.3/1 – ป.3/4 · สอนครบทุกเรื่องที่ออกสอบ</p>
+  </div>
+
+  <div class="jump">
+    <a href="#t1">① แรงกับการเคลื่อนที่</a>
+    <a href="#t2">② แรงสัมผัส / ไม่สัมผัส</a>
+    <a href="#t3">③ สารแม่เหล็ก</a>
+    <a href="#t4">④ ขั้วแม่เหล็ก</a>
+    <a href="#t5">⑤ สรุปก่อนสอบ</a>
+  </div>
+
+  <!-- ============ 1 ============ -->
+  <h2 id="t1"><span class="num">1</span> แรงทำอะไรกับวัตถุได้บ้าง</h2>
+
+  <div class="card">
+    <p><b>แรง</b> คือการ <b>ดึง</b> หรือ <b>ผลัก</b> ที่เรากระทำต่อวัตถุ · แรงทำให้เกิดผลได้ <b>2 แบบใหญ่ ๆ</b></p>
+    <div class="rule"><span class="tag pull">① เปลี่ยนการเคลื่อนที่</span>
+      <span>ของหยุด → วิ่ง · ของวิ่ง → หยุด · เร็วขึ้น · ช้าลง · เปลี่ยนทิศ</span></div>
+    <div class="rule"><span class="tag push">② เปลี่ยนรูปร่าง</span>
+      <span>ปั้นดินน้ำมัน · ก่อกองทราย · ดัดลวด — ของ<b>อยู่ที่เดิม</b> แค่รูปร่างเปลี่ยน</span></div>
+    <p class="th">ข้อสอบชอบเอา 2 อย่างนี้มาหลอกกัน ถ้าถามว่า "ทำให้<b>เคลื่อนที่</b>" ต้องเลือกข้อที่ของ<b>ย้ายที่</b>จริง ๆ</p>
+  </div>
+
+  <div class="card key">
+    <span class="label">🔑 หัวใจของหน่วยนี้ — ทิศของแรงบอกผลลัพธ์</span>
+    <table>
+      <tr><th>ออกแรงยังไง</th><th>ผลที่เกิด</th><th>ตัวอย่างในข้อสอบ</th></tr>
+      <tr><td><b>ทิศเดียวกับ</b>ที่วัตถุวิ่ง<br>(ดันตามหลัง)</td>
+          <td><b style="color:#17a05e">เร็วขึ้น</b></td>
+          <td>ผลักท้ายรถของเล่นที่กำลังวิ่ง · ผลักม้าหมุนตามทางที่หมุน</td></tr>
+      <tr><td><b>ทิศตรงข้าม</b>กับที่วัตถุวิ่ง<br>(ต้านไว้)</td>
+          <td><b style="color:#e0364f">ช้าลง / หยุด</b></td>
+          <td>เอามือจับรถที่วิ่งมา · รับลูกฟุตบอลที่เพื่อนเตะมา</td></tr>
+      <tr><td><b>ทิศข้าง ๆ</b></td>
+          <td><b style="color:#f08c1a">เปลี่ยนทิศ</b></td>
+          <td>ตบลูกวอลเลย์บอลข้ามตาข่าย</td></tr>
+      <tr><td>ของ<b>หยุดนิ่ง</b>อยู่ แล้วออกแรง</td>
+          <td><b>เริ่มเคลื่อนที่</b></td>
+          <td>เตะบอลส่งเพื่อน · ลากโต๊ะ</td></tr>
+    </table>
+  </div>
+
+  <div class="card tip">
+    <span class="label">ลองคิดดู</span>
+    <p style="margin:6px 0">"ซี <b>รับ</b>ลูกฟุตบอลที่เพื่อนเตะมา" — ลูกบอลกำลัง<b>วิ่งมา</b> ซีออกแรง<b>ต้าน</b> →
+      ลูกบอล<b>หยุดนิ่ง</b>ในมือ ✅</p>
+    <p style="margin:6px 0">"ดี <b>ตบ</b>ลูกวอลเลย์ข้ามตาข่าย" — ลูกวิ่งมาแล้ว<b>เปลี่ยนทิศ</b>วิ่งต่อ ไม่ได้หยุด ❗</p>
+  </div>
+
+  <!-- ============ 2 ============ -->
+  <h2 id="t2"><span class="num">2</span> แรงสัมผัส กับ แรงไม่สัมผัส</h2>
+
+  <div class="card key">
+    <span class="label">คำถามเดียวที่ต้องถาม</span>
+    <p class="qrlead" style="font-size:24px;margin:6px 0">“ต้อง<b>แตะถึงกัน</b>ไหม ถึงจะออกแรงได้?”</p>
+    <div class="rule"><span class="tag pull">แตะ = แรงสัมผัส</span>
+      <span>ดึง · ผลัก · ลาก · เข็น · เตะ · ถีบ · ปั้น · เปิดหน้าต่าง</span></div>
+    <div class="rule"><span class="tag push">ไม่ต้องแตะ = แรงไม่สัมผัส</span>
+      <span><b>แรงแม่เหล็ก</b> · <b>แรงโน้มถ่วง</b> (ของตกลงพื้น) · <b>แรงไฟฟ้าสถิต</b></span></div>
+  </div>
+
+  <div class="card">
+    <h3 style="margin-top:0">🎮 ลองแยกดู — แตะกดดูว่าข้อไหนเป็นแบบไหน</h3>
+    <p class="th">เลือกให้ครบทุกข้อ ตอบแล้วรู้เฉลยทันที</p>
+    <div class="sortgame" id="sortgame"></div>
+    <p class="scoreline" id="sortscore"></p>
+  </div>
+
+  <div class="card warn">
+    <span class="label">⚠️ จุดที่เด็กพลาดบ่อยที่สุด</span>
+    <p style="margin:6px 0"><b>แม่เหล็กดูดตะปู</b> → คนมักตอบว่า "สัมผัส" เพราะสุดท้ายตะปูไปติดแม่เหล็ก</p>
+    <p style="margin:6px 0">แต่ให้ดูที่<b>ตอนเริ่มออกแรง</b> — ตอนที่ยัง<b>ห่างกัน</b> แม่เหล็กก็ดูดแล้ว
+      จึงเป็น <b>แรงไม่สัมผัส</b> เสมอ</p>
+  </div>
+
+  <!-- ============ 3 ============ -->
+  <h2 id="t3"><span class="num">3</span> สารแม่เหล็ก — อะไรที่แม่เหล็กดูดได้</h2>
+
+  <div class="card key">
+    <span class="label">กฎเหล็ก (ตามชื่อเลย)</span>
+    <p style="margin:6px 0;font-size:21px">แม่เหล็กดูดได้เฉพาะ <b>สารแม่เหล็ก</b> คือ
+      <b>เหล็ก · นิกเกิล · โคบอลต์</b> เท่านั้น</p>
+    <p class="th">ของที่เจอในข้อสอบและทำจากเหล็ก: ตะปู · เข็มหมุด · เข็มเย็บผ้า · เข็มกลัด ·
+      ลวดเย็บกระดาษ · ลวดเสียบกระดาษ · กรรไกร · ลูกกุญแจ</p>
+    <p class="th">ของที่<b>ดูดไม่ขึ้น</b>: ยางลบ · กระดาษ · ตะเกียบไม้ · เส้นด้าย · พลาสติก · แก้ว</p>
+  </div>
+
+  <div class="card warn">
+    <span class="label">⚠️ โลหะ ≠ สารแม่เหล็ก</span>
+    <p style="margin:6px 0"><b>ทองคำ · เงิน · ทองแดง · อะลูมิเนียม</b> เป็นโลหะก็จริง
+      แต่แม่เหล็ก<b>ดูดไม่ขึ้น</b> — อย่าเห็นว่าเงาวาวแล้วตอบว่าดูดได้ทันที</p>
+  </div>
+
+  <div class="card">
+    <h3 style="margin-top:0">🃏 การ์ดพลิก — ทายก่อนแล้วค่อยกดดูเฉลย</h3>
+    <div class="flipwrap" id="flipwrap"></div>
+  </div>
+
+  <!-- ============ 4 ============ -->
+  <h2 id="t4"><span class="num">4</span> ขั้วแม่เหล็ก — เรื่องที่ออกสอบเยอะที่สุด</h2>
+
+  <div class="card key">
+    <span class="label">🔑 ท่องให้ขึ้นใจ 3 ข้อนี้ ทำได้เกือบครึ่งข้อสอบ</span>
+    <ol style="margin:8px 0;font-size:21px">
+      <li>แม่เหล็กมี <b>2 ขั้ว</b> คือ <b style="color:#e0364f">ขั้วเหนือ (N)</b> กับ
+        <b style="color:#3b5bdb">ขั้วใต้ (S)</b> — <u>ไม่ใช่</u>ขั้วบวกขั้วลบ (นั่นคือถ่านไฟฉาย)</li>
+      <li><b>ขั้วเหมือนกัน → ผลักกัน</b> · <b>ขั้วต่างกัน → ดึงดูดกัน</b></li>
+      <li>แม่เหล็ก<b>แท่งเดียวกัน</b> ปลายสองข้างต้อง<b>ต่างขั้วกันเสมอ</b>
+        (ข้างหนึ่ง N อีกข้างต้อง S)</li>
+    </ol>
+  </div>
+
+  <div class="card tip">
+    <span class="label">🎯 เทคนิคทำข้อรูปแม่เหล็กให้ถูกทุกข้อ</span>
+    <p style="margin:6px 0"><b>มองแค่ 2 ตัวอักษรที่อยู่ติดช่องว่างตรงกลาง</b> — ตัวริมนอกสุดไม่ต้องสนใจเลย</p>
+    <div class="playrow">
+      <div class="magbox">
+        <div id="demoA"></div>
+        <p style="margin:2px 0;font-weight:700;color:#0b6b3c">ตรงกลาง N ↔ S = ต่างกัน → <b>ดึงดูด</b></p>
+      </div>
+    </div>
+    <div class="playrow">
+      <div class="magbox">
+        <div id="demoB"></div>
+        <p style="margin:2px 0;font-weight:700;color:#9c1028">ตรงกลาง N ↔ N = เหมือนกัน → <b>ผลัก</b></p>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3 style="margin-top:0">🎮 เครื่องลองแม่เหล็ก — กดสลับขั้วดูเลย</h3>
+    <p class="th">กดปุ่มเพื่อพลิกแท่งแม่เหล็ก แล้วดูว่าผลเปลี่ยนไหม</p>
+    <div class="magbox" id="lab"></div>
+    <div class="btn-row" style="margin:10px 0 0">
+      <button class="btn" id="flip1">🔄 พลิกแท่งซ้าย</button>
+      <button class="btn" id="flip2">🔄 พลิกแท่งขวา</button>
+    </div>
+    <p class="scoreline" id="labout"></p>
+  </div>
+
+  <div class="card key">
+    <span class="label">แบบที่ 1 — โจทย์ให้ขั้วไม่ครบ ต้องเติมเอง</span>
+    <p style="margin:6px 0">ใช้กฎข้อ 3 — ปลายสองข้างของแท่งเดียวกันต้องต่างกัน</p>
+    <p style="margin:6px 0">เช่น แท่งขวาเขียนไว้ว่าปลายขวาเป็น <b>S</b> → ปลายซ้ายต้องเป็น <b>N</b> แน่นอน
+      แล้วค่อยเอา N ไปเทียบกับปลายของแท่งซ้าย</p>
+  </div>
+
+  <div class="card key">
+    <span class="label">แบบที่ 2 — แม่เหล็ก 2 แท่งดูดติดกันแล้ว แบ่งเป็น 4 ช่อง</span>
+    <div class="magbox" id="stuckDemo"></div>
+    <p style="margin:8px 0">ใช้ 2 กฎพร้อมกัน แล้ว<b>ลองสมมติ</b>:</p>
+    <ol style="margin:6px 0">
+      <li>B กับ C <b>ติดกันได้</b> → ต้อง<b>ต่างขั้ว</b></li>
+      <li>A ต่างจาก B · C ต่างจาก D (แท่งเดียวกัน)</li>
+      <li>สมมติ A = เหนือ → B = ใต้ → C = เหนือ → D = ใต้</li>
+      <li>ได้ว่า <b>A กับ C เป็นขั้วเดียวกัน</b> และ <b>B กับ D เป็นขั้วเดียวกัน</b> เสมอ</li>
+    </ol>
+  </div>
+
+  <div class="card key">
+    <span class="label">แบบที่ 3 — แขวนแม่เหล็กให้หมุนอิสระ</span>
+    <p style="margin:6px 0">แม่เหล็กจะหมุนจนหยุดในแนว <b>เหนือ–ใต้</b> เสมอ
+      โดย<b>ขั้วเหนือชี้ทิศเหนือ</b> และ<b>ขั้วใต้ชี้ทิศใต้</b></p>
+    <p style="margin:6px 0">เพราะ<b>โลกเราเป็นแม่เหล็กขนาดยักษ์</b> — นี่คือหลักการของ<b>เข็มทิศ</b></p>
+    <p class="th">ทำซ้ำกี่รอบก็ได้ผลเหมือนเดิมทุกครั้ง ถ้าไม่เหมือนเดิม เข็มทิศก็ใช้ไม่ได้แล้ว</p>
+  </div>
+
+  <div class="card warn">
+    <span class="label">⚠️ ข้อที่ยากที่สุดในชุดนี้ — "ดึงดูดกัน สรุปได้ว่าอะไร"</span>
+    <p style="margin:6px 0">แม่เหล็กเข้าใกล้ <b>วัตถุ A</b> แล้ว<b>ดึงดูด</b>กัน → A เป็นอะไรได้บ้าง</p>
+    <p style="margin:6px 0">✅ <b>เป็นได้ 2 อย่าง</b> — เป็น<b>เหล็ก</b> ก็ได้
+      หรือเป็น<b>แม่เหล็กที่หันขั้วต่างกัน</b>เข้ามาก็ได้ → ต้องตอบข้อที่พูดถึง<b>ทั้งสองแบบ</b></p>
+    <p style="margin:6px 0">แต่ถ้าโจทย์บอกว่า <b>ผลักกัน</b> → ฟันธงได้เลยว่า A ต้องเป็น<b>แม่เหล็ก</b>
+      เพราะ<b>เหล็กธรรมดาไม่มีวันผลัก</b> มีแต่ถูกดูดอย่างเดียว</p>
+  </div>
+
+  <!-- ============ 5 ============ -->
+  <h2 id="t5"><span class="num">5</span> สรุปก่อนสอบ — อ่านแผ่นเดียวจบ</h2>
+
+  <div class="card key">
+    <table>
+      <tr><th>เจอคำนี้ในโจทย์</th><th>ให้นึกถึง</th></tr>
+      <tr><td>ทิศ<b>เดียวกัน</b> / ดันตามหลัง</td><td>เร็วขึ้น</td></tr>
+      <tr><td><b>รับ</b> / <b>จับ</b> ของที่วิ่งมา</td><td>หยุดนิ่ง</td></tr>
+      <tr><td><b>ตบ</b> / <b>ปัด</b> ของที่วิ่งมา</td><td>เปลี่ยนทิศ (ไม่ได้หยุด)</td></tr>
+      <tr><td>ปั้น · ก่อ · ดัด</td><td>เปลี่ยน<b>รูปร่าง</b> ไม่ใช่เคลื่อนที่</td></tr>
+      <tr><td>แม่เหล็ก · ของตกลงพื้น</td><td>แรง<b>ไม่</b>สัมผัส</td></tr>
+      <tr><td>มือ/เท้าแตะของ</td><td>แรงสัมผัส</td></tr>
+      <tr><td>ยางลบ · กระดาษ · ไม้ · ด้าย · พลาสติก</td><td>แม่เหล็กดูด<b>ไม่ขึ้น</b></td></tr>
+      <tr><td><b>ผลัก</b>กันได้</td><td>ต้องเป็น<b>แม่เหล็ก</b>ทั้งคู่</td></tr>
+      <tr><td>N เจอ N หรือ S เจอ S</td><td>ผลัก</td></tr>
+      <tr><td>N เจอ S</td><td>ดึงดูด</td></tr>
+      <tr><td>แขวนแล้วปล่อย</td><td>ชี้แนวเหนือ–ใต้ เหมือนเข็มทิศ</td></tr>
+    </table>
+  </div>
+
+  <div class="card tip">
+    <span class="label">อย่าลืม 2 กับดักนี้</span>
+    <p style="margin:6px 0">① ข้อที่ถามว่า "ข้อใด<b>ไม่</b>ถูกต้อง" — ในชุดนี้มี <b>2 ข้อ</b> (ข้อ 7 กับ ข้อ 20)
+      อ่านโจทย์ให้จบก่อนเลือก</p>
+    <p style="margin:6px 0">② ขั้วแม่เหล็กคือ <b>N–S</b> ไม่ใช่บวก–ลบ · และ <b>ขั้วต่างกันดึงดูด</b> ไม่ใช่ผลัก</p>
+  </div>
+
+  <div class="btn-row">
+    <a class="btn" href="practice.html">✏️ พร้อมแล้ว ไปทำแบบฝึกหัด 28 คะแนน</a>
+    <a class="btn ghost" href="../index.html">🏠 หน้าแรก</a>
+  </div>
+
+  <p class="foot">สื่อทบทวนข้อสอบจริง ป.3 · Quarter 2</p>
+</main>
+
+<script src="../assets/figures.js"></script>
+<script>
+(function () {
+  var d = document;
+
+  /* ---- เกมแยกแรงสัมผัส / ไม่สัมผัส ---- */
+  var ITEMS = [
+    { w: 'เตะลูกฟุตบอล', touch: true, why: 'เท้าแตะลูกบอล' },
+    { w: 'แม่เหล็กดูดตะปู', touch: false, why: 'ยังห่างกันก็ดูดแล้ว' },
+    { w: 'เข็นรถเข็น', touch: true, why: 'มือจับรถเข็น' },
+    { w: 'ผลไม้หล่นจากต้น', touch: false, why: 'แรงโน้มถ่วงของโลกดึง ไม่ต้องแตะ' },
+    { w: 'ลากกระเป๋านักเรียน', touch: true, why: 'มือจับกระเป๋า' },
+    { w: 'แม่เหล็ก 2 แท่งผลักกัน', touch: false, why: 'ห่างกันก็ผลักได้' },
+    { w: 'ถีบจักรยาน', touch: true, why: 'เท้าแตะบันได' },
+    { w: 'เปิดหน้าต่าง', touch: true, why: 'มือแตะบานหน้าต่าง' },
+    { w: 'ก่อกองทราย', touch: true, why: 'มือแตะทราย' },
+    { w: 'ดึงเบ็ดตกปลา', touch: true, why: 'มือจับคันเบ็ด' }
+  ];
+  var box = d.getElementById('sortgame'), out = d.getElementById('sortscore'), done = 0, right = 0;
+  ITEMS.forEach(function (it) {
+    var row = d.createElement('div');
+    row.className = 'srow';
+    row.innerHTML = '<span class="wd">' + it.w + '</span>';
+    var msg = d.createElement('span');
+    msg.className = 'msg';
+    [['สัมผัส', true], ['ไม่สัมผัส', false]].forEach(function (pair) {
+      var b = d.createElement('button');
+      b.textContent = pair[0];
+      b.addEventListener('click', function () {
+        if (row.dataset.done) return;
+        row.dataset.done = '1';
+        done++;
+        var ok = (pair[1] === it.touch);
+        if (ok) right++;
+        b.className = ok ? 'pick-ok' : 'pick-no';
+        row.querySelectorAll('button').forEach(function (x) { x.disabled = true; });
+        msg.innerHTML = ok
+          ? '✅ ถูกต้อง — ' + it.why
+          : '❌ ที่ถูกคือ <b>' + (it.touch ? 'แรงสัมผัส' : 'แรงไม่สัมผัส') + '</b> — ' + it.why;
+        show();
+      });
+      row.appendChild(b);
+    });
+    row.appendChild(msg);
+    box.appendChild(row);
+  });
+  function show() {
+    out.textContent = 'ตอบแล้ว ' + done + '/' + ITEMS.length + ' · ถูก ' + right +
+      (done === ITEMS.length
+        ? (right === ITEMS.length ? ' 🏆 เต็ม! เก่งมาก' : ' 💪 ลองอ่านข้อที่แดงอีกรอบนะ')
+        : '');
+  }
+
+  /* ---- การ์ดพลิก: สารแม่เหล็กหรือเปล่า ---- */
+  var CARDS = [
+    { w: '🪡 เข็มหมุด', yes: true }, { w: '📄 กระดาษ', yes: false },
+    { w: '🔩 ตะปู', yes: true }, { w: '🥢 ตะเกียบไม้', yes: false },
+    { w: '✂️ กรรไกร', yes: true }, { w: '🧵 เส้นด้าย', yes: false },
+    { w: '🧽 ยางลบ', yes: false }, { w: '🔑 ลูกกุญแจ', yes: true }
+  ];
+  var fw = d.getElementById('flipwrap');
+  CARDS.forEach(function (c) {
+    var e = d.createElement('div');
+    e.className = 'flip';
+    e.innerHTML = c.w + '<br><span style="font-size:16px;color:#62748a">แตะเพื่อดูเฉลย</span>';
+    e.addEventListener('click', function () {
+      e.className = 'flip on';
+      e.innerHTML = c.w + '<br>' + (c.yes
+        ? '🧲 <b>แม่เหล็กดูดได้</b><br><span style="font-size:16px">เป็นสารแม่เหล็ก (เหล็ก)</span>'
+        : '🚫 <b>ดูดไม่ขึ้น</b><br><span style="font-size:16px">ไม่ใช่สารแม่เหล็ก</span>');
+    });
+    fw.appendChild(e);
+  });
+
+  /* ---- รูปตัวอย่าง + เครื่องลองแม่เหล็ก ---- */
+  d.getElementById('demoA').innerHTML = Fig.magnetPair(['S', 'N'], ['S', 'N']);
+  d.getElementById('demoB').innerHTML = Fig.magnetPair(['S', 'N'], ['N', 'S']);
+  d.getElementById('stuckDemo').innerHTML = Fig.magnetStuck(['A', 'B', 'C', 'D']);
+
+  var m1 = ['N', 'S'], m2 = ['S', 'N'];
+  function draw() {
+    d.getElementById('lab').innerHTML = Fig.magnetPair(m1, m2);
+    var facing = [m1[1], m2[0]];
+    var same = facing[0] === facing[1];
+    d.getElementById('labout').innerHTML = 'ตรงกลางคือ <b>' + facing[0] + ' ↔ ' + facing[1] + '</b> — ' +
+      (same ? 'ขั้วเหมือนกัน → <b style="color:#9c1028">ผลักกัน 💥</b>'
+            : 'ขั้วต่างกัน → <b style="color:#0b6b3c">ดึงดูดกัน 🧲</b>');
+  }
+  d.getElementById('flip1').addEventListener('click', function () { m1 = [m1[1], m1[0]]; draw(); });
+  d.getElementById('flip2').addEventListener('click', function () { m2 = [m2[1], m2[0]]; draw(); });
+  draw();
+})();
+</script>
+</body>
+</html>

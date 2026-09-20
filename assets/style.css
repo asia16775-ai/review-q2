@@ -22,6 +22,8 @@
   --sci-2: #37bd98;
   --eng: #d6336c;
   --eng-2: #ff7aa8;
+  --vit: #b5451b;
+  --vit-2: #f07a3f;
 
   --radius: 18px;
   --shadow: 0 6px 20px rgba(29, 43, 58, .08);
@@ -42,6 +44,7 @@ a { color: inherit; }
 body.math { --theme: var(--math); --theme2: var(--math-2); }
 body.sci  { --theme: var(--sci);  --theme2: var(--sci-2); }
 body.eng  { --theme: var(--eng);  --theme2: var(--eng-2); }
+body.vit  { --theme: var(--vit);  --theme2: var(--vit-2); }
 body.home { --theme: #5b48c8;     --theme2: #8b7aff; }
 
 /* ---------- top bar ---------- */
@@ -137,10 +140,13 @@ th { background: #e9eefa; color: var(--theme); }
 .subj.s .t, .subj.s .pill.go { color: #fff; background: var(--sci); }
 .subj.e { border-color: #f9c9da; border-top-color: var(--eng); }
 .subj.e .t, .subj.e .pill.go { color: #fff; background: var(--eng); }
+.subj.v { border-color: #f7d3c1; border-top-color: var(--vit); }
+.subj.v .t, .subj.v .pill.go { color: #fff; background: var(--vit); }
 .subj .t { background: none !important; }
 .subj.m .t { color: var(--math); }
 .subj.s .t { color: var(--sci); }
 .subj.e .t { color: var(--eng); }
+.subj.v .t { color: var(--vit); }
 
 /* ============================================================
    แถบสถานะ (ครูดูจากหน้าจอที่แชร์ได้ทันที)
@@ -175,11 +181,14 @@ th { background: #e9eefa; color: var(--theme); }
 .strip {
   display: flex; gap: 5px; flex-wrap: wrap; padding: 0 16px 9px;
   max-width: 940px; margin: 0 auto;
+  max-height: 84px; overflow-y: auto;          /* วิชาที่ข้อเยอะจะได้ไม่ดันแถบสูงเกินไป */
+  overscroll-behavior: contain;
 }
 .strip .dot {
-  width: 30px; height: 30px; border-radius: 9px; border: none;
-  background: rgba(255,255,255,.28); color: #fff;
+  min-width: 30px; height: 30px; padding: 0 6px; border-radius: 9px; border: none;
+  background: rgba(255,255,255,.28); color: #fff; white-space: nowrap;
   font-family: 'Nunito', sans-serif; font-size: 14px; font-weight: 800; cursor: pointer;
+  line-height: 30px;
 }
 .strip .dot.ok   { background: #2ee08a; color: #06452a; }
 .strip .dot.no   { background: #ff8095; color: #5c0011; }

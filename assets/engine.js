@@ -334,10 +334,22 @@
     while (s.length < wide) s = '0' + s;
     return s;
   }
-  function b64url(s) {
+  /* บีบชื่อให้เหลือ 1 ไบต์ต่อตัวอักษร (ภาษาไทยปกติกิน 3 ไบต์) QR จะได้ไม่ใหญ่เกินไป
+     อักษรอังกฤษ/ตัวเลข = รหัสเดิม · อักษรไทย U+0E00–U+0E7F = ย้ายไปอยู่ช่วง 0x80–0xFF */
+  function packName(s) {
+    var out = '', i, c;
+    s = String(s || '').slice(0, 12);
+    for (i = 0; i < s.length; i++) {
+      c = s.charCodeAt(i);
+      if (c < 0x80) out += String.fromCharCode(c);
+      else if (c >= 0x0E00 && c <= 0x0E7F) out += String.fromCharCode(0x80 + (c - 0x0E00));
+      else out += '?';
+    }
+    return out;
+  }
+  function b64url(latin1) {
     try {
-      return btoa(unescape(encodeURIComponent(s)))
-        .replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/, '');
+      return btoa(latin1).replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/, '');
     } catch (e) { return ''; }
   }
   function resultCode() {
@@ -345,8 +357,8 @@
       var g = Math.min(9, Math.max(0, Math.round(it._got || 0)));
       return (it._help ? String.fromCharCode(65 + g) : String(g)) + pad36(it._sec, 2);
     }).join('');
-    var code = '2' + (S.subject || 'x').charAt(0) + pad36(S.elapsed, 3) + body;
-    var nm = b64url((S.name || '').slice(0, 16));
+    var code = '3' + (S.subject || 'x').charAt(0) + pad36(S.elapsed, 3) + body;
+    var nm = b64url(packName(S.name));
     return nm ? code + '~' + nm : code;
   }
 

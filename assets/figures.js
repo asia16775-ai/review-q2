@@ -407,11 +407,99 @@
     return svg('0 0 400 182', 470, s, '');
   }
 
+
+  /* ---------------- แท่งแม่เหล็ก (หน่วยแรงและแม่เหล็ก) ---------------- */
+  /* หนึ่งแท่ง: ป้ายซ้าย/ขวา · ขั้ว N ทาสีแดง ขั้ว S ทาสีน้ำเงิน ตัวอักษรอื่นเป็นสีเทาเข้ม */
+  function poleFill(t) {
+    var u = String(t).toUpperCase();
+    return (u === 'N') ? RED : (u === 'S') ? BLUE : NAVY;
+  }
+  function bar(x, y, wd, ht, left, right, opt) {
+    opt = opt || {};
+    var s = '<rect x="' + x + '" y="' + y + '" width="' + wd + '" height="' + ht + '" rx="4" ' +
+      'fill="' + (opt.fill || '#fff') + '" stroke="' + NAVY + '" stroke-width="3"/>';
+    if (!opt.vertical) {
+      s += '<text x="' + (x + wd * 0.22) + '" y="' + (y + ht * 0.66) + '" text-anchor="middle" ' +
+        'font-size="' + (ht * 0.46) + '" font-weight="800" fill="' + poleFill(left) + '">' + left + '</text>';
+      s += '<text x="' + (x + wd * 0.78) + '" y="' + (y + ht * 0.66) + '" text-anchor="middle" ' +
+        'font-size="' + (ht * 0.46) + '" font-weight="800" fill="' + poleFill(right) + '">' + right + '</text>';
+    } else {
+      s += '<text x="' + (x + wd / 2) + '" y="' + (y + ht * 0.26) + '" text-anchor="middle" ' +
+        'font-size="' + (wd * 0.46) + '" font-weight="800" fill="' + poleFill(left) + '">' + left + '</text>';
+      s += '<text x="' + (x + wd / 2) + '" y="' + (y + ht * 0.92) + '" text-anchor="middle" ' +
+        'font-size="' + (wd * 0.46) + '" font-weight="800" fill="' + poleFill(right) + '">' + right + '</text>';
+    }
+    return s;
+  }
+
+  /* แม่เหล็กสองแท่งวางเรียงกัน  m1/m2 = ['N','S'] · gap = ช่องว่างตรงกลาง */
+  function magnetPair(m1, m2, opt) {
+    opt = opt || {};
+    var bw = 150, bh = 62, gap = (opt.gap === undefined) ? 40 : opt.gap;
+    var x2 = 10 + bw + gap;
+    var s = bar(10, 12, bw, bh, m1[0], m1[1]) + bar(x2, 12, bw, bh, m2[0], m2[1]);
+    if (opt.note) {
+      s += '<text x="' + (x2 + bw + 12) + '" y="50" font-size="19" font-weight="700" fill="' +
+        NAVY + '">' + opt.note + '</text>';
+    }
+    var total = x2 + bw + (opt.note ? 190 : 12);
+    return svg('0 0 ' + total + ' 86', Math.min(total * 1.15, 520), s, '');
+  }
+
+  /* แม่เหล็กสองแท่งวางตั้ง เคียงข้างกัน (ตัวเลือก ง. ของข้อ 17) */
+  function magnetPairV(m1, m2) {
+    var bw = 56, bh = 130;
+    var s = bar(14, 10, bw, bh, m1[0], m1[1], { vertical: true }) +
+            bar(14 + bw + 34, 10, bw, bh, m2[0], m2[1], { vertical: true });
+    return svg('0 0 ' + (14 * 2 + bw * 2 + 34) + ' 150', 210, s, '');
+  }
+
+  /* แม่เหล็กสองแท่งที่ดูดติดกันแล้ว แบ่งเป็น 4 ช่อง A B C D */
+  function magnetStuck(labels) {
+    var cw = 92, ht = 62, s = '';
+    for (var i = 0; i < 4; i++) {
+      s += '<rect x="' + (10 + i * cw) + '" y="12" width="' + cw + '" height="' + ht + '" ' +
+        'fill="#fff" stroke="' + NAVY + '" stroke-width="3"/>';
+      s += '<text x="' + (10 + i * cw + cw / 2) + '" y="53" text-anchor="middle" ' +
+        'font-size="28" font-weight="800" fill="' + NAVY + '">' + labels[i] + '</text>';
+    }
+    /* เส้นหนาตรงกลาง บอกว่าเป็นรอยต่อของแม่เหล็ก 2 แท่ง */
+    s += '<line x1="' + (10 + 2 * cw) + '" y1="12" x2="' + (10 + 2 * cw) + '" y2="' + (12 + ht) +
+      '" stroke="' + NAVY + '" stroke-width="5"/>';
+    return svg('0 0 ' + (20 + 4 * cw) + ' 86', 400, s, '');
+  }
+
+  /* ตารางผลการทดลอง ดึงดูด / ไม่ดึงดูด (ข้อ 14) */
+  function attractTable(rows) {
+    var s = '<rect x="6" y="6" width="376" height="' + (46 + rows.length * 44) + '" fill="#fff" ' +
+      'stroke="' + NAVY + '" stroke-width="3"/>';
+    s += '<line x1="118" y1="6" x2="118" y2="' + (52 + rows.length * 44) + '" stroke="' + NAVY + '" stroke-width="3"/>';
+    s += '<line x1="250" y1="28" x2="250" y2="' + (52 + rows.length * 44) + '" stroke="' + NAVY + '" stroke-width="3"/>';
+    s += '<line x1="6" y1="28" x2="382" y2="28" stroke="' + NAVY + '" stroke-width="2"/>';
+    s += '<line x1="6" y1="52" x2="382" y2="52" stroke="' + NAVY + '" stroke-width="3"/>';
+    s += '<text x="62" y="42" text-anchor="middle" font-size="17" font-weight="700" fill="' + NAVY + '">วัตถุ</text>';
+    s += '<text x="250" y="22" text-anchor="middle" font-size="16" font-weight="700" fill="' + NAVY + '">แม่เหล็กเข้าใกล้วัตถุ</text>';
+    s += '<text x="184" y="46" text-anchor="middle" font-size="16" font-weight="700" fill="' + GREEN + '">ดึงดูด</text>';
+    s += '<text x="316" y="46" text-anchor="middle" font-size="16" font-weight="700" fill="' + GREY + '">ไม่ดึงดูด</text>';
+    rows.forEach(function (r, i) {
+      var y = 52 + i * 44;
+      if (i) s += '<line x1="6" y1="' + y + '" x2="382" y2="' + y + '" stroke="' + NAVY + '" stroke-width="2"/>';
+      s += '<text x="62" y="' + (y + 30) + '" text-anchor="middle" font-size="20" font-weight="700" fill="' +
+        NAVY + '">' + r.name + '</text>';
+      var cx = r.attract ? 184 : 316;
+      s += '<path d="M' + (cx - 13) + ' ' + (y + 22) + ' l9 11 l17 -20" fill="none" stroke="' +
+        (r.attract ? GREEN : ORANGE) + '" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>';
+    });
+    return svg('0 0 388 ' + (58 + rows.length * 44), 420, s, '');
+  }
+
   w.Fig = {
     clock: clock, clockDouble: clockDouble, clockPair: clockPair,
     houseH: houseH, houseV: houseV, group: group, groupsAll: groupsAll,
     perpGrid: perpGrid, marbles: marbles, eggArray: eggArray, figuresABC: figuresABC,
     roomScene: roomScene, mapPost: mapPost, mapStreet: mapStreet,
-    pharmacyArrow: pharmacyArrow, twoShops: twoShops, threeBuildings: threeBuildings
+    pharmacyArrow: pharmacyArrow, twoShops: twoShops, threeBuildings: threeBuildings,
+    bar: bar, magnetPair: magnetPair, magnetPairV: magnetPairV,
+    magnetStuck: magnetStuck, attractTable: attractTable
   };
 })(window);
